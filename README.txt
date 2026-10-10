@@ -2,10 +2,22 @@ Alex interactive desk website
 
 Open index.html in a modern browser, or run python3 -m http.server 8765
 from this folder and visit http://localhost:8765/ for a local preview.
-The homepage title is alexvaneck in both desk and teletext views.
+The homepage title is Alex van Eck | Technologie & projecten in IJsselstein
+in both desk and teletext views. The description, Open Graph metadata,
+canonical URL and Person structured data describe Alex and his connection
+to IJsselstein. A visible introduction below the desk and the shared
+About/teletext introduction mention IJsselstein naturally.
 Its robots meta tag explicitly permits indexing and following links.
-The homepage loads Google Analytics using Google tag ID G-59P9G417BB
-in both desk and teletext views.
+The homepage only loads Google Analytics (G-59P9G417BB) after acceptance
+in a tilted yellow sticky-note cookie notice with locally available
+handwriting fonts (no external font requests), in both desk and teletext views.
+The choice is remembered for 180 days and can be changed using
+Cookie-instellingen below the desk or in the teletext footer.
+assets/cookie-consent.js uses a separate storage key and alexvaneck cookie
+prefix so the homepage and IDMB have independent consent. Refusal disables
+homepage tracking and removes its prefixed and legacy Analytics cookies.
+Storage and script errors are explicitly reported in the notice.
+Run homepage consent/SEO tests: node --test tests/homepage-consent.test.cjs
 
 The IDMB page (/idmb/) only loads Google Analytics (G-PK9D34W1EP)
 after explicit acceptance in its cookie notice. Accepting and rejecting

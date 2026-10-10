@@ -2,19 +2,20 @@
 <html lang="nl">
 <head>
 <meta charset="utf-8">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-59P9G417BB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-59P9G417BB');
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<title>alexvaneck</title>
+<title>Alex van Eck | Technologie &amp; projecten in IJsselstein</title>
 <meta name="robots" content="index, follow">
-<meta name="description" content="Interactieve homepage van Alex van Eck met websites, X17, TEDx, Enjoycleaningup en projecten.">
+<meta name="description" content="Alex van Eck, techneut en Klimaatburgemeester van IJsselstein. Ontdek zijn websites, AI-projecten, X17-opruimrobot, TEDx en Enjoycleaningup.">
+<link rel="canonical" href="https://alexvaneck.nl/">
+<meta property="og:title" content="Alex van Eck | Technologie &amp; projecten in IJsselstein">
+<meta property="og:description" content="Techneut en Klimaatburgemeester van IJsselstein. Websites, AI, X17 en een schonere wereld met Enjoycleaningup.">
+<meta property="og:url" content="https://alexvaneck.nl/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Alex van Eck","url":"https://alexvaneck.nl/","description":"Techneut, TEDx-spreker en Klimaatburgemeester van IJsselstein. Werkt aan websites, AI en een schonere wereld met Enjoycleaningup.","sameAs":["https://www.linkedin.com/in/alexvaneck","https://www.instagram.com/alexveck"]}
+</script>
+<link rel="stylesheet" href="assets/cookie-note.css?v=20261010">
+<script src="assets/cookie-consent.js?v=20261010" defer></script>
 <style>
 :root{
   --yellow:#fbc23a;
@@ -278,6 +279,11 @@ html.tt-mode #teletext{display:block}
     <span id="weatherStatus" role="status">Weer in IJsselstein wordt geladen.</span>
     <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Weerdata: Open-Meteo (CC BY 4.0)</a>
   </div>
+  <div class="desk-intro">
+    <h1>Alex van Eck — technologie en projecten in IJsselstein</h1>
+    <p>Techneut, TEDx-spreker en Klimaatburgemeester van IJsselstein. Ontdek mijn websites, AI-projecten en de X17-opruimrobot, en hoe ik met Enjoycleaningup werk aan een schonere wereld.</p>
+    <button class="cookie-settings" type="button" aria-controls="cookie-note" aria-expanded="false">Cookie-instellingen</button>
+  </div>
 </main>
 
 <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectTitle" aria-hidden="true">
@@ -295,7 +301,7 @@ html.tt-mode #teletext{display:block}
   <div class="modal-card">
     <div class="modal-head"><h2 id="aboutTitle">Over Alex</h2><button class="modal-close" id="aboutClose" type="button" aria-label="Sluiten">×</button></div>
     <div class="about-copy">
-      <p>Ik werk graag op het snijvlak van technologie, creativiteit en maatschappelijke impact. Van digitale producten en AI tot websites, robots en tastbare innovaties.</p>
+      <p>Als techneut en Klimaatburgemeester van IJsselstein werk ik graag op het snijvlak van technologie, creativiteit en maatschappelijke impact. Van digitale producten en AI tot websites, robots en tastbare innovaties.</p>
       <p>Veel van mijn projecten ontstaan vanuit één simpele vraag: kan dit slimmer, mooier of nuttiger? Deze interactieve werkplek is mijn digitale bureau — klik gerust rond.</p>
     </div>
     <div class="modal-actions"><button class="primary" id="aboutClose2" type="button">Sluiten</button></div>
@@ -314,10 +320,23 @@ html.tt-mode #teletext{display:block}
   <div class="tt-screen">
     <div class="tt-head"><label class="tt-pn">P<input id="ttInput" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" value="100" aria-label="Paginanummer" autocomplete="off"></label><span>ALEXVANECK</span><span id="ttClock"></span></div>
     <main class="tt-body" id="ttBody"></main>
-    <div class="tt-foot"><a href="?desk">Volledige bureau-versie</a></div>
+    <div class="tt-foot"><a href="?desk">Volledige bureau-versie</a><button class="cookie-settings" type="button" aria-controls="cookie-note" aria-expanded="false">Cookie-instellingen</button></div>
     <nav class="tt-fast" aria-label="Snelle navigatie"><a href="#p100">Index</a><a href="#p101">Over mij</a><a href="#p102">Projecten</a><a href="#p105">Contact</a></nav>
   </div>
 </div>
+
+<aside class="cookie-note" id="cookie-note" role="region" aria-labelledby="cookie-note-title" hidden>
+  <span class="cookie-note-label">Even een briefje...</span>
+  <h2 id="cookie-note-title" tabindex="-1">Cookies op mijn bureau</h2>
+  <p>Ik gebruik Google Analytics om te begrijpen hoe mijn website wordt bezocht en deze te verbeteren. Alleen met jouw toestemming worden analytische cookies geplaatst en gebruiksgegevens met Google gedeeld.</p>
+  <p>Weigeren kan ook: mijn bureau blijft gewoon werken. Je keuze wordt 180 dagen op dit apparaat onthouden en kun je altijd aanpassen via Cookie-instellingen.</p>
+  <a class="cookie-info" href="https://policies.google.com/privacy?hl=nl" target="_blank" rel="noopener noreferrer">Meer over privacy bij Google</a>
+  <div class="cookie-note-actions">
+    <button id="cookie-reject" type="button">Weigeren</button>
+    <button id="cookie-accept" type="button">Accepteren</button>
+  </div>
+  <p id="cookie-status" class="cookie-status" role="status"></p>
+</aside>
 
 <script>
 (() => {
@@ -358,7 +377,7 @@ html.tt-mode #teletext{display:block}
       {title:'Pixar',text:'Hoe maken we er een beleving van in ons Labra-torium.'},
       {title:'AI/Websites',text:'Bouw van verschillende websites maar ook (AI)agents.'}
     ]},
-    'over-mij':{title:'Over mij',intro:'Techneut met een missie: ik bouw graag dingen die slimmer, mooier of nuttiger zijn, en het liefst met impact op de wereld om ons heen.',cards:[
+    'over-mij':{title:'Over mij',intro:'Techneut en Klimaatburgemeester van IJsselstein met een missie: ik bouw graag dingen die slimmer, mooier of nuttiger zijn, en het liefst met impact op de wereld om ons heen.',cards:[
       {title:'Mijn verhaal',text:'Ik ben begonnen als softwareontwikkelaar en werk sinds 2009 bij het Nederlands Woning Waarde Instituut, waar ik nu Adjunct Directeur ICT en MT-lid ben. Daar werk ik aan ICT, data, security en digitalisering. Naast mijn werk ben ik bezig met een schonere wereld, onder andere bij Stichting Enjoycleaningup.'},
       {title:'Waar ik aan werk',text:'<strong>X17:</strong> een autonome opruimrobot. Naast de techniek zijn er ook juridische uitdagingen om hem op de openbare weg te krijgen.<br><strong>Trash-lab / Labra-torium:</strong> techniek, educatie en beleving.<br><strong>AI en websites:</strong> verschillende websites en (AI)agents.<br><strong>Enjoycleaningup:</strong> clean-ups met mensen, bedrijven en jongeren.'},
       {title:'Waar ik voor sta',text:'Technologie moet iets goeds doen voor mensen en de omgeving. Zwerfafval verdwijnt het best met positieve energie, slimme innovatie en samenwerking, niet met een opgeheven vingertje. Daarom combineer ik techniek met creativiteit en een flinke portie humor.<br><br>Daarnaast: TEDx-spreker en Klimaatburgemeester van IJsselstein.'}
@@ -518,7 +537,7 @@ html.tt-mode #teletext{display:block}
     ttBody.replaceChildren();
     if(ttPages[n]){ttPages[n](ttBody)}
     else{ttTitle('Pagina '+n,ttBody);ttRow('tt-t','Deze pagina bestaat niet.',ttBody);ttRow('tt-sp','',ttBody);ttInternal(100,'Terug naar de index',ttBody)}
-    ttInput.value=String(n);document.title='alexvaneck';window.scrollTo(0,0);
+    ttInput.value=String(n);window.scrollTo(0,0);
   }
   function ttTick(){const d=new Date();ttClock.textContent=d.toLocaleDateString('nl-NL',{weekday:'short',day:'2-digit',month:'short'}).replace(/\./g,'')+' '+d.toLocaleTimeString('nl-NL',{hour:'2-digit',minute:'2-digit',second:'2-digit'})}
   function ttApply(){document.documentElement.classList.toggle('tt-mode',ttWanted())}

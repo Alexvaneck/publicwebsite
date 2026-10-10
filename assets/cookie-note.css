@@ -1,0 +1,19 @@
+.desk-intro{max-width:780px;margin:0 auto;padding:22px 24px 32px;color:#e6d5b9;text-align:center}
+.desk-intro h1{font-size:18px;font-weight:600;margin:0 0 10px}
+.desk-intro p{font-size:14px;line-height:1.7;margin:0}
+.cookie-settings{display:inline-block;margin-top:14px;border:0;padding:4px;background:transparent;color:inherit;font:inherit;font-size:13px;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.cookie-note{position:fixed;right:36px;bottom:34px;z-index:1000;width:min(370px,calc(100% - 60px));max-height:calc(100dvh - 76px);overflow:auto;padding:34px 26px 24px;background:linear-gradient(135deg,#fff3a6,#ffe77c);color:#302614;box-shadow:3px 12px 28px rgba(0,0,0,.34);border:1px solid #e5ce63;transform:rotate(-3deg);font-family:"Bradley Hand","Segoe Print","Comic Sans MS",cursive}
+.cookie-note[hidden]{display:none}
+.cookie-note::before{content:"";position:absolute;top:0;left:calc(50% - 44px);width:88px;height:19px;background:rgba(255,255,235,.58);border:1px solid rgba(209,188,125,.3);transform:rotate(3deg)}
+.cookie-note-label{font-size:17px;font-weight:700;letter-spacing:.02em;color:#69501b}
+.cookie-note h2{font-size:29px;line-height:1.12;letter-spacing:-.025em;margin:12px 0 16px}
+.cookie-note p{font-size:17px;line-height:1.4;margin:0 0 12px}
+.cookie-note .cookie-info{font-size:16px;color:inherit;text-underline-offset:3px}
+.cookie-note-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.cookie-note-actions button{padding:10px 8px;border:1px solid #302614;border-radius:2px;background:transparent;color:#302614;font-family:inherit;font-size:18px;font-weight:700}
+.cookie-note-actions #cookie-accept{background:#302614;color:#fff3a6}
+.cookie-note .cookie-status{margin:14px 0 0;font-size:16px}
+.cookie-status:empty{display:none}
+.cookie-settings:focus-visible,.cookie-note button:focus-visible,.cookie-note a:focus-visible{outline:2px solid #b66b0b;outline-offset:4px}
+html.tt-mode #teletext .cookie-settings{display:block;margin:6px auto;color:#ff0;font:inherit;text-decoration:underline}
+@media(max-width:760px){.cookie-note{right:22px;bottom:26px;width:calc(100% - 44px);max-height:calc(100dvh - 72px);transform:rotate(-2deg);padding:28px 22px 22px}}
