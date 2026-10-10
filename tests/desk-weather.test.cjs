@@ -1,5 +1,8 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
 const {weatherKind, parseWeather, daylight, solarDaylight, appearance} = require('../assets/desk-weather.js');
 
 const now = Date.parse('2026-10-07T12:00:00+02:00');
@@ -95,5 +98,38 @@ test('unknown weather never invents sunshine, precipitation or a clear sky', () 
   const unknown = appearance({phase:'day', light:1}, null);
   for (const property of ['--weather-rain','--weather-snow','--weather-fog','--weather-sun-glow','--weather-stars','--weather-moon']) {
     assert.equal(unknown[property], 0);
+  }
+});
+
+test('phone uses an HTML projection plane and resizes with the desk on tablet rotation', () => {
+  const root = path.resolve(__dirname, '..');
+  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const source = fs.readFileSync(path.join(root, 'assets/desk-weather.js'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'assets/desk-weather.css'), 'utf8');
+  assert.match(html, /<div class="phone-weather" id="phoneWeather"/);
+  assert.match(html, /<div class="phone-weather-plane">\s*<div class="phone-weather-projection">\s*<svg/);
+  assert.doesNotMatch(html, /<foreignObject/);
+  assert.match(css, /\.phone-weather-plane\{[^}]*width:1448px;height:1086px;[^}]*transform:scale\(var\(--phone-weather-scale,0\)\)/);
+  let width = 768;
+  let resize;
+  const properties = {};
+  const stage = {getBoundingClientRect: () => ({width})};
+  const phone = {style: {setProperty(name, value) { properties[name] = value; }}};
+  const context = {
+    URLSearchParams, Intl, location: {search: ''},
+    document: {hidden: true, documentElement: {}, addEventListener() {}, getElementById(id) {
+      return {stage, weatherStatus: {}, phoneWeather: phone}[id] || null;
+    }},
+    setInterval() {},
+    MutationObserver: class { observe() {} },
+    ResizeObserver: class {
+      constructor(callback) { resize = callback; }
+      observe(target) { assert.equal(target, stage); }
+    }
+  };
+  vm.runInNewContext(source, context);
+  for (width of [768, 1024, 1180, 1536, 390]) {
+    resize();
+    assert.equal(Number(properties['--phone-weather-scale']), width / 1448);
   }
 });

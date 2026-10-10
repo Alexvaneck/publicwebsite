@@ -90,7 +90,7 @@
       setNoticeVisible(false);
       if (notice.contains(document.activeElement)) {
         const visibleButton = opener || settings.find(button => button.getClientRects().length);
-        if (visibleButton) visibleButton.focus();
+        if (visibleButton) visibleButton.focus({preventScroll: true});
       }
       opener = null;
     }
@@ -99,7 +99,8 @@
   settings.forEach(button => button.addEventListener('click', () => {
     opener = button;
     setNoticeVisible(true);
-    document.getElementById('cookie-note-title').focus();
+    window.scrollTo({top: 0, left: 0, behavior: 'instant'});
+    document.getElementById('cookie-note-title').focus({preventScroll: true});
   }));
   document.getElementById('cookie-accept').addEventListener('click', () => saveChoice('accepted'));
   document.getElementById('cookie-reject').addEventListener('click', () => saveChoice('rejected'));

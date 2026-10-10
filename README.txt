@@ -5,14 +5,21 @@ from this folder and visit http://localhost:8765/ for a local preview.
 The homepage title is Alex van Eck | Technologie & projecten in IJsselstein
 in both desk and teletext views. The description, Open Graph metadata,
 canonical URL and Person structured data describe Alex and his connection
-to IJsselstein. A visible introduction below the desk and the shared
-About/teletext introduction mention IJsselstein naturally.
+to IJsselstein. A visually hidden heading and introduction remain available
+to screen readers; the shared About/teletext introduction also mentions IJsselstein.
+No introduction or weather caption is displayed below the desk. Weather
+status remains available to screen readers, and the phone still shows the weather.
+The Open-Meteo attribution link is available in the cookie notice.
 Its robots meta tag explicitly permits indexing and following links.
 The homepage only loads Google Analytics (G-59P9G417BB) after acceptance
 in a tilted yellow sticky-note cookie notice with locally available
 handwriting fonts (no external font requests), in both desk and teletext views.
 The choice is remembered for 180 days and can be changed using
-Cookie-instellingen below the desk or in the teletext footer.
+the small Cookie-instellingen button at the bottom right of the desk
+or in the teletext footer.
+Opening these settings scrolls to the top and focuses the notice without
+an extra scroll jump. The sticky note stays at the top of the viewport;
+closing it restores keyboard focus without scrolling back to the footer.
 assets/cookie-consent.js uses a separate storage key and alexvaneck cookie
 prefix so the homepage and IDMB have independent consent. Refusal disables
 homepage tracking and removes its prefixed and legacy Analytics cookies.
@@ -67,7 +74,9 @@ monitor, poster, lamp and desk retain their original appearance and hotspots.
 Rain, snow and fog are limited to the window; night reduces the daylight glow.
 The illustrated phone displays current temperature, weather icon, a compact
 condition label and the observation time in Europe/Amsterdam. Its screen
-overlay uses a four-corner projective transform and scales with the desk image.
+overlay uses a four-corner projective transform on a regular HTML layer
+(not inside SVG foreignObject, for iPad/Safari compatibility). A ResizeObserver
+scales its 1448 x 1086 coordinate plane with the desk, including orientation changes.
 The 152 x 300 screen maps to (166,736), (281,736), (210,859),
 and (66,856) in the original 1448 x 1086 artwork, clockwise from top left.
 Rain falls in three layers at different speeds; snowflakes fall and drift

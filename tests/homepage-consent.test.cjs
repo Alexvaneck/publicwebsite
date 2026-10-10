@@ -17,14 +17,15 @@ function setup({choice, expires = Date.now() + lifetime - 1000, raw, blocked = f
       hidden: true, textContent: '', events: {}, attributes: {}, focused: false,
       addEventListener(type, handler) { this.events[type] = handler; },
       setAttribute(key, value) { this.attributes[key] = value; },
-      focus() { this.focused = true; }, contains() { return false; },
+      focus(options) { this.focused = true; this.focusOptions = options; }, contains() { return false; },
       getClientRects() { return [1]; }
     };
   }
-  const scripts = [], cookies = [], errors = [], events = {};
+  const scripts = [], cookies = [], errors = [], events = {}, scrolls = [];
   const settings = [node('desk-settings'), node('tt-settings')];
   const context = {
     location: {hostname: 'alexvaneck.nl'},
+    scrollTo(options) { scrolls.push(options); },
     console: {error(...args) { errors.push(args); }},
     document: {
       getElementById: node, querySelectorAll() { return settings; },
@@ -42,7 +43,7 @@ function setup({choice, expires = Date.now() + lifetime - 1000, raw, blocked = f
   };
   context.window = context;
   vm.runInNewContext(source, context);
-  return {context, nodes, scripts, cookies, errors, events, settings,
+  return {context, nodes, scripts, cookies, errors, events, settings, scrolls,
     stored: () => stored, click(id) { node(id).events.click(); }};
 }
 
@@ -82,7 +83,12 @@ test('both settings buttons reopen notice; withdrawal preserves IDMB cookies', (
     app.click(id);
     assert.equal(app.nodes['cookie-note'].hidden, false);
     assert.equal(app.nodes['cookie-note-title'].focused, true);
+    assert.equal(app.nodes['cookie-note-title'].focusOptions.preventScroll, true);
+    assert.equal(app.scrolls.at(-1).top, 0);
+    app.nodes['cookie-note'].contains = () => true;
     app.click('cookie-reject');
+    assert.equal(app.nodes[id].focused, true);
+    assert.equal(app.nodes[id].focusOptions.preventScroll, true);
     assert.equal(app.context['ga-disable-G-59P9G417BB'], true);
   }
   assert.ok(app.cookies.some(value => value.startsWith('_ga=')));
@@ -124,7 +130,7 @@ test('clearing consent in another tab disables tracking', () => {
   assert.equal(app.nodes['cookie-note'].hidden, false);
 });
 
-test('IJsselstein is in metadata and visible copy, with valid Person structured data', () => {
+test('IJsselstein is in metadata and accessible copy, with valid Person structured data', () => {
   assert.match(html, /<title>[^<]*IJsselstein<\/title>/);
   assert.match(html, /<meta name="description" content="[^"]*IJsselstein/);
   assert.match(html, /<h1>[^<]*IJsselstein<\/h1>/);
@@ -143,4 +149,18 @@ test('cookie notice uses tilted paper and local handwriting fonts', () => {
   assert.match(css, /transform:rotate\(-2deg\)/);
   assert.match(css, /"Bradley Hand","Segoe Print","Comic Sans MS",cursive/);
   assert.doesNotMatch(css, /@import|https?:\/\//);
+  assert.match(css, /\.cookie-note\{[^}]*top:34px/);
+  assert.match(css, /@media\(max-width:760px\)\{\.cookie-note\{[^}]*top:26px/);
+  assert.doesNotMatch(css, /\.cookie-note\{[^}]*bottom:/);
+});
+
+test('desk footer copy is visually hidden and settings and attribution remain accessible', () => {
+  const css = fs.readFileSync(path.join(root, 'assets/cookie-note.css'), 'utf8');
+  assert.match(html, /<div class="visually-hidden">\s*<span id="weatherStatus" role="status">/);
+  assert.match(html, /<div class="visually-hidden">\s*<h1>/);
+  assert.doesNotMatch(html, /class="weather-caption"|class="desk-intro"/);
+  assert.match(html, /<button class="cookie-settings"[^>]*>Cookie-instellingen<\/button>\s*<\/div>\s*<\/section>/);
+  assert.match(html, /<aside class="cookie-note"[\s\S]*href="https:\/\/open-meteo\.com\/"[\s\S]*<\/aside>/);
+  assert.match(css, /\.visually-hidden\{[^}]*clip-path:inset\(50%\)/);
+  assert.match(css, /\.stage > \.cookie-settings\{[^}]*position:absolute;right:12px;bottom:12px/);
 });

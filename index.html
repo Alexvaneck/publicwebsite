@@ -14,8 +14,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Alex van Eck","url":"https://alexvaneck.nl/","description":"Techneut, TEDx-spreker en Klimaatburgemeester van IJsselstein. Werkt aan websites, AI en een schonere wereld met Enjoycleaningup.","sameAs":["https://www.linkedin.com/in/alexvaneck","https://www.instagram.com/alexveck"]}
 </script>
-<link rel="stylesheet" href="assets/cookie-note.css?v=20261010">
-<script src="assets/cookie-consent.js?v=20261010" defer></script>
+<link rel="stylesheet" href="assets/cookie-note.css?v=20261010-desk">
+<script src="assets/cookie-consent.js?v=20261010-top" defer></script>
 <style>
 :root{
   --yellow:#fbc23a;
@@ -154,8 +154,8 @@ html.tt-mode #teletext{display:block}
 #teletext .tt-foot{color:#888;text-align:center;font-size:.75em;padding:.4em 0 .6em}
 #teletext .tt-foot a{color:#0ff;text-decoration:underline}
 </style>
-<link rel="stylesheet" href="assets/desk-weather.css?v=20261009-tower">
-<script src="assets/desk-weather.js" defer></script>
+<link rel="stylesheet" href="assets/desk-weather.css?v=20261010-ipad">
+<script src="assets/desk-weather.js?v=20261010-ipad" defer></script>
 </head>
 <body>
 <main class="page">
@@ -243,7 +243,10 @@ html.tt-mode #teletext{display:block}
         <button class="paper-close" id="closePapers" type="button">Sluiten</button>
       </div>
 
-      <svg class="phone-weather" id="phoneWeather" viewBox="0 0 1448 1086" preserveAspectRatio="none" role="img" aria-label="Weer in IJsselstein wordt geladen">
+      <div class="phone-weather" id="phoneWeather" role="img" aria-label="Weer in IJsselstein wordt geladen">
+        <div class="phone-weather-plane">
+          <div class="phone-weather-projection">
+            <svg width="152" height="300" viewBox="0 0 152 300" text-anchor="middle" aria-hidden="true">
         <defs>
           <linearGradient id="phoneWeatherBackground" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="#24475e"/><stop offset="1" stop-color="#0c1b2a"/>
@@ -258,9 +261,6 @@ html.tt-mode #teletext{display:block}
           <symbol id="phoneIconFog" viewBox="0 0 64 64"><path d="M10 18H54M5 30H47M17 42H59M8 54H49"/></symbol>
           <symbol id="phoneIconStorm" viewBox="0 0 64 64"><path d="M14 31A10 10 0 0 1 14 11A16 16 0 0 1 44 10A11 11 0 0 1 51 31M35 29L23 47H34L27 61L46 40H34Z"/></symbol>
         </defs>
-        <foreignObject width="1448" height="1086">
-          <div xmlns="http://www.w3.org/1999/xhtml" class="phone-weather-projection">
-            <svg xmlns="http://www.w3.org/2000/svg" width="152" height="300" viewBox="0 0 152 300" text-anchor="middle">
               <rect width="152" height="300" rx="12" fill="url(#phoneWeatherBackground)"/>
               <text x="76" y="42" class="phone-weather-location">IJsselstein</text>
               <use id="phoneWeatherIcon" href="#phoneIconCloud" x="47" y="65" width="58" height="58" class="phone-weather-icon"/>
@@ -269,20 +269,19 @@ html.tt-mode #teletext{display:block}
               <text id="phoneWeatherTime" x="76" y="257" class="phone-weather-time">Actueel weer</text>
             </svg>
           </div>
-        </foreignObject>
-      </svg>
+        </div>
+      </div>
       <div class="keyboard-zone" id="keyboardZone" aria-hidden="true"></div>
       <div class="sound-toast" id="soundToast">Toetsenbordgeluid actief</div>
+      <button class="cookie-settings" type="button" aria-controls="cookie-note" aria-expanded="false">Cookie-instellingen</button>
     </div>
   </section>
-  <div class="weather-caption">
+  <div class="visually-hidden">
     <span id="weatherStatus" role="status">Weer in IJsselstein wordt geladen.</span>
-    <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Weerdata: Open-Meteo (CC BY 4.0)</a>
   </div>
-  <div class="desk-intro">
+  <div class="visually-hidden">
     <h1>Alex van Eck — technologie en projecten in IJsselstein</h1>
     <p>Techneut, TEDx-spreker en Klimaatburgemeester van IJsselstein. Ontdek mijn websites, AI-projecten en de X17-opruimrobot, en hoe ik met Enjoycleaningup werk aan een schonere wereld.</p>
-    <button class="cookie-settings" type="button" aria-controls="cookie-note" aria-expanded="false">Cookie-instellingen</button>
   </div>
 </main>
 
@@ -336,6 +335,7 @@ html.tt-mode #teletext{display:block}
     <button id="cookie-accept" type="button">Accepteren</button>
   </div>
   <p id="cookie-status" class="cookie-status" role="status"></p>
+  <p><a class="cookie-info" href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Weerdata: Open-Meteo (CC BY 4.0)</a></p>
 </aside>
 
 <script>

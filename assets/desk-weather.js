@@ -116,6 +116,11 @@
     const phoneCondition = document.getElementById('phoneWeatherCondition');
     const phoneTime = document.getElementById('phoneWeatherTime');
     const phoneIcon = document.getElementById('phoneWeatherIcon');
+    if (phone) {
+      const resizePhone = () => phone.style.setProperty('--phone-weather-scale', String(stage.getBoundingClientRect().width / 1448));
+      new ResizeObserver(resizePhone).observe(stage);
+      resizePhone();
+    }
     const observationTime = new Intl.DateTimeFormat('nl-NL', {timeZone:'Europe/Amsterdam', hour:'2-digit', minute:'2-digit'});
     const phoneLabels = {...labels, 'partly-cloudy':'Half bewolkt'};
     const phoneIcons = {clear:'Sun', 'partly-cloudy':'Cloud', cloudy:'Cloud', fog:'Fog', rain:'Rain', snow:'Snow', storm:'Storm'};
