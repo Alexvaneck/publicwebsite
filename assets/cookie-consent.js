@@ -1,5 +1,5 @@
 (() => {
-  const measurementId = 'G-59P9G417BB';
+  const measurementId = 'G-J5Q1E3G4DJ';
   const storageKey = 'alexvaneck.analytics-consent.v1';
   const lifetime = 180 * 24 * 60 * 60 * 1000;
   const notice = document.getElementById('cookie-note');
@@ -30,7 +30,8 @@
     const domains = location.hostname.split('.');
     for (const cookie of document.cookie.split(';')) {
       const name = cookie.split('=')[0].trim();
-      if (!/^alexvaneck_ga(?:_|$)/.test(name) && name !== '_ga' && name !== '_ga_59P9G417BB') continue;
+      if (!/^alexvaneck_ga(?:_|$)/.test(name) && name !== '_ga' &&
+          name !== '_ga_59P9G417BB' && name !== '_ga_J5Q1E3G4DJ') continue;
       const expired = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
       document.cookie = expired;
       for (let i = 0; i < domains.length - 1; i++) {

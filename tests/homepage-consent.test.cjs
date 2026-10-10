@@ -31,7 +31,7 @@ function setup({choice, expires = Date.now() + lifetime - 1000, raw, blocked = f
       getElementById: node, querySelectorAll() { return settings; },
       createElement() { return node('script'); },
       head: {appendChild(script) { scripts.push(script); }},
-      get cookie() { return '_ga=old; _ga_59P9G417BB=old; alexvaneck_ga=new; alexvaneck_ga_59P9G417BB=new; idmb_ga=other; _ga_PK9D34W1EP=other'; },
+      get cookie() { return '_ga=old; _ga_59P9G417BB=old; _ga_J5Q1E3G4DJ=new; alexvaneck_ga=new; alexvaneck_ga_59P9G417BB=old; alexvaneck_ga_J5Q1E3G4DJ=new; idmb_ga=other; _ga_PK9D34W1EP=other'; },
       set cookie(value) { cookies.push(value); }
     },
     localStorage: {
@@ -54,7 +54,7 @@ test('homepage uses opt-in script and offers settings in desk and teletext', () 
   for (const choice of [undefined, 'rejected']) {
     const app = setup({choice});
     assert.equal(app.scripts.length, 0);
-    assert.equal(app.context['ga-disable-G-59P9G417BB'], true);
+    assert.equal(app.context['ga-disable-G-J5Q1E3G4DJ'], true);
     assert.equal(app.nodes['cookie-note'].hidden, choice === 'rejected');
   }
 });
@@ -63,8 +63,10 @@ test('acceptance loads once with correct ID, expiry and homepage cookie prefix',
   const app = setup();
   app.click('cookie-accept');
   assert.equal(app.scripts.length, 1);
-  assert.equal(app.scripts[0].src, 'https://www.googletagmanager.com/gtag/js?id=G-59P9G417BB');
-  assert.equal(app.context['ga-disable-G-59P9G417BB'], false);
+  assert.equal(app.scripts[0].src, 'https://www.googletagmanager.com/gtag/js?id=G-J5Q1E3G4DJ');
+  assert.equal(app.context['ga-disable-G-J5Q1E3G4DJ'], false);
+  assert.equal(app.context.dataLayer[1][1], 'G-J5Q1E3G4DJ');
+  assert.ok(app.context.dataLayer.every(command => command[1] !== 'G-59P9G417BB'));
   assert.equal(app.context.dataLayer[1][2].cookie_prefix, 'alexvaneck');
   assert.equal(app.context.dataLayer[1][2].cookie_path, '/');
   assert.equal(app.context.dataLayer[1][2].cookie_expires, lifetime / 1000);
@@ -89,10 +91,13 @@ test('both settings buttons reopen notice; withdrawal preserves IDMB cookies', (
     app.click('cookie-reject');
     assert.equal(app.nodes[id].focused, true);
     assert.equal(app.nodes[id].focusOptions.preventScroll, true);
-    assert.equal(app.context['ga-disable-G-59P9G417BB'], true);
+    assert.equal(app.context['ga-disable-G-J5Q1E3G4DJ'], true);
   }
   assert.ok(app.cookies.some(value => value.startsWith('_ga=')));
   assert.ok(app.cookies.some(value => value.startsWith('alexvaneck_ga=')));
+  for (const name of ['_ga_59P9G417BB', '_ga_J5Q1E3G4DJ', 'alexvaneck_ga_59P9G417BB', 'alexvaneck_ga_J5Q1E3G4DJ']) {
+    assert.ok(app.cookies.some(value => value.startsWith(`${name}=`)));
+  }
   assert.ok(app.cookies.every(value => !/^idmb_ga|^_ga_PK9D34W1EP/.test(value)));
   assert.equal(JSON.parse(app.stored()).choice, 'rejected');
 });
@@ -126,7 +131,7 @@ test('clearing consent in another tab disables tracking', () => {
   const app = setup({choice: 'accepted'});
   app.context.localStorage.removeItem();
   app.events.storage({key: null});
-  assert.equal(app.context['ga-disable-G-59P9G417BB'], true);
+  assert.equal(app.context['ga-disable-G-J5Q1E3G4DJ'], true);
   assert.equal(app.nodes['cookie-note'].hidden, false);
 });
 

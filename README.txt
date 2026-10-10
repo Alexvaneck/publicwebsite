@@ -11,7 +11,8 @@ No introduction or weather caption is displayed below the desk. Weather
 status remains available to screen readers, and the phone still shows the weather.
 The Open-Meteo attribution link is available in the cookie notice.
 Its robots meta tag explicitly permits indexing and following links.
-The homepage only loads Google Analytics (G-59P9G417BB) after acceptance
+The homepage only loads Google Analytics (G-J5Q1E3G4DJ, the independent
+Alexvaneck property) after acceptance
 in a tilted yellow sticky-note cookie notice with locally available
 handwriting fonts (no external font requests), in both desk and teletext views.
 The choice is remembered for 180 days and can be changed using
@@ -22,7 +23,8 @@ an extra scroll jump. The sticky note stays at the top of the viewport;
 closing it restores keyboard focus without scrolling back to the footer.
 assets/cookie-consent.js uses a separate storage key and alexvaneck cookie
 prefix so the homepage and IDMB have independent consent. Refusal disables
-homepage tracking and removes its prefixed and legacy Analytics cookies.
+homepage tracking and removes its prefixed and legacy Analytics cookies,
+including cookies from the previous G-59P9G417BB stream.
 Storage and script errors are explicitly reported in the notice.
 Run homepage consent/SEO tests: node --test tests/homepage-consent.test.cjs
 
