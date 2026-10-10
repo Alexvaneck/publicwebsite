@@ -2,15 +2,6 @@
 <html lang="nl">
 <head>
   <meta charset="utf-8" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK9D34W1EP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-PK9D34W1EP');
-  </script>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>IDMB RE B.V. — Vastgoed & ontwikkeling</title>
   <meta name="description" content="Conceptwebsite voor IDMB RE B.V. — ontwikkeling, investering en beheer van vastgoed." />
@@ -29,6 +20,12 @@
     .cta{padding-top:40px}.cta-box{background:var(--sand);padding:76px;display:flex;justify-content:space-between;gap:50px;align-items:center}.cta-box h2{font-size:48px;line-height:1.03;letter-spacing:-.03em;margin:0;max-width:700px}.cta-box p{color:#65726f;max-width:470px;line-height:1.7}
     footer{margin-top:90px;background:#071b1a;color:white;padding:54px 0 28px}.foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px}.foot h4{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:#9eb0ac}.foot p,.foot a{color:#d9e0de;line-height:1.8;font-size:14px}.credit{border-top:1px solid rgba(255,255,255,.12);margin-top:38px;padding-top:25px;display:flex;justify-content:space-between;align-items:center;color:#96aaa6;font-size:12px}.credit .alexvaneck{display:inline-block;color:#fff;font-size:28px;font-weight:700;letter-spacing:-.04em;white-space:nowrap}.alexvaneck span{color:#f58220}
     .mobile{display:none}.note{font-size:11px;color:#8a9693;margin-top:14px}
+    .cookie-settings{display:block;margin-top:14px;padding:0;border:0;background:none;color:#d9e0de;font:inherit;font-size:13px;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+    .cookie-notice{position:fixed;right:24px;bottom:24px;z-index:100;width:min(480px,calc(100% - 48px));max-height:calc(100dvh - 48px);overflow:auto;padding:30px;background:var(--sand);border:1px solid #d8d2c6;border-top:3px solid var(--gold);box-shadow:0 16px 60px rgba(7,27,26,.22)}
+    .cookie-notice[hidden]{display:none}.cookie-notice .eyebrow{color:#725924}.cookie-notice h2{font-size:30px;line-height:1.1;letter-spacing:-.03em;margin:14px 0}.cookie-notice p{font-size:14px;line-height:1.7;color:#475956;margin:0 0 12px}.cookie-notice a{text-decoration:underline;text-underline-offset:3px}
+    .cookie-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.cookie-actions .btn{justify-content:center;border:1px solid var(--ink);font-family:inherit;cursor:pointer}.cookie-notice .cookie-status{margin:14px 0 0;font-size:12px}.cookie-status:empty{display:none}
+    .cookie-settings:focus-visible,.cookie-notice a:focus-visible,.cookie-actions button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+    @media(max-width:580px){.cookie-notice{right:14px;bottom:14px;width:calc(100% - 28px);max-height:calc(100dvh - 28px);padding:24px}.cookie-actions{grid-template-columns:1fr}}
     @media(max-width:900px){.wrap{width:min(100% - 28px,var(--max))}.menu{display:none}.mobile{display:block}.hero-card{min-height:600px}.hero-content{padding:60px 28px}.hero-tag{min-width:auto;width:100%;position:absolute}.intro,.statement .wrap{grid-template-columns:1fr;gap:25px}.intro-copy{padding-top:0}.cards4{grid-template-columns:1fr 1fr}.project-grid{grid-template-columns:1fr}.project-side{grid-template-columns:1fr 1fr;grid-template-rows:none}.project-list{grid-template-columns:1fr}.logo-row{grid-template-columns:1fr 1fr}.cta-box{padding:42px 28px;display:block}.foot{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:20px}.hero h1{font-size:58px}}
     @media(max-width:580px){.cards4,.project-side,.logo-row{grid-template-columns:1fr}.hero-card{min-height:620px}.hero h1{font-size:50px}.hero p{font-size:17px}.hero-tag{font-size:12px}.project-main{height:500px}.cta-box h2{font-size:38px}.credit{display:block}.credit .alexvaneck{margin-top:20px}}
   </style>
@@ -119,7 +116,135 @@
 
   <section class="cta" id="contact"><div class="wrap"><div class="cta-box"><div><div class="eyebrow">Kennismaken?</div><h2>Een kans, locatie of project bespreken?</h2></div><div><p>We komen graag in contact met grondeigenaren, ontwikkelaars, investeerders en andere partijen die kansen zien in vastgoed.</p><a href="mailto:info@speebeheer.nl" class="btn">Neem contact op ↗</a></div></div></div></section>
 </main>
-<footer><div class="wrap"><div class="foot"><div><h4>IDMB RE B.V.</h4><p>Vastgoed & ontwikkeling<br>Conceptwebsite</p></div><div><h4>Navigatie</h4><p><a href="#over">Over ons</a><br><a href="#projecten">Projecten</a><br><a href="#disciplines">Disciplines</a><br><a href="#partners">Partners</a></p></div><div><h4>Contact</h4><p><a href="mailto:info@speebeheer.nl">info@speebeheer.nl</a><br>Contactgegevens kunnen in definitieve versie worden aangevuld.</p></div></div><div class="credit"><span>© 2026 IDMB RE B.V. · Eerste visueel concept</span><a class="alexvaneck" href="https://alexvaneck.nl/"><span>alex</span>vaneck</a></div></div></footer>
+<footer><div class="wrap"><div class="foot"><div><h4>IDMB RE B.V.</h4><p>Vastgoed & ontwikkeling<br>Conceptwebsite</p><button class="cookie-settings" type="button" aria-controls="cookie-notice" aria-expanded="false">Cookie-instellingen</button></div><div><h4>Navigatie</h4><p><a href="#over">Over ons</a><br><a href="#projecten">Projecten</a><br><a href="#disciplines">Disciplines</a><br><a href="#partners">Partners</a></p></div><div><h4>Contact</h4><p><a href="mailto:info@speebeheer.nl">info@speebeheer.nl</a><br>Contactgegevens kunnen in definitieve versie worden aangevuld.</p></div></div><div class="credit"><span>© 2026 IDMB RE B.V. · Eerste visueel concept</span><a class="alexvaneck" href="https://alexvaneck.nl/"><span>alex</span>vaneck</a></div></div></footer>
+<aside class="cookie-notice" id="cookie-notice" role="region" aria-labelledby="cookie-title" hidden>
+  <div class="eyebrow">Uw privacy, uw keuze</div>
+  <h2 id="cookie-title" tabindex="-1">Een zorgvuldig bezoek.</h2>
+  <p>Met uw toestemming gebruiken we Google Analytics om te zien hoe deze website wordt gebruikt en deze te verbeteren. Hiervoor worden analytische cookies geplaatst en gebruiksgegevens met Google gedeeld. Zonder toestemming laden we Google Analytics niet.</p>
+  <p>We onthouden uw keuze zes maanden op dit apparaat. U kunt deze altijd aanpassen via Cookie-instellingen onderaan de pagina. <a href="https://policies.google.com/privacy?hl=nl" target="_blank" rel="noopener noreferrer">Meer over privacy bij Google</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn ghost" id="cookie-reject" type="button">Weigeren</button>
+    <button class="btn" id="cookie-accept" type="button">Accepteren</button>
+  </div>
+  <p class="cookie-status" id="cookie-status" role="status"></p>
+</aside>
+<script id="google-consent">
+  (() => {
+    const measurementId = 'G-PK9D34W1EP';
+    const storageKey = 'idmb.analytics-consent.v1';
+    const lifetime = 180 * 24 * 60 * 60 * 1000;
+    const notice = document.getElementById('cookie-notice');
+    const status = document.getElementById('cookie-status');
+    const settings = document.querySelector('.cookie-settings');
+    let scriptLoaded = false;
+    let trackingEnabled = false;
+    let returnFocus = false;
+    window['ga-disable-' + measurementId] = true;
+
+    function readChoice() {
+      try {
+        const raw = localStorage.getItem(storageKey);
+        if (!raw) return null;
+        const saved = JSON.parse(raw);
+        if (saved && ['accepted', 'rejected'].includes(saved.choice) &&
+            Number.isFinite(saved.expires) && saved.expires > Date.now() &&
+            saved.expires <= Date.now() + lifetime) return saved.choice;
+        localStorage.removeItem(storageKey);
+      } catch (error) {
+        console.error('De IDMB-cookiekeuze kon niet worden gelezen.', error);
+        status.textContent = 'Uw opgeslagen keuze is niet beschikbaar. Kies opnieuw; Analytics blijft uit tot u toestemming geeft.';
+      }
+      return null;
+    }
+
+    function clearAnalyticsCookies() {
+      const domains = location.hostname.split('.');
+      for (const cookie of document.cookie.split(';')) {
+        const name = cookie.split('=')[0].trim();
+        if (!/^idmb_ga(?:_|$)/.test(name) && name !== '_ga_PK9D34W1EP') continue;
+        for (const cookiePath of ['/idmb/', '/idmb', '/']) {
+          const expired = `${name}=; Max-Age=0; path=${cookiePath}; SameSite=Lax`;
+          document.cookie = expired;
+          for (let i = 0; i < domains.length - 1; i++) {
+            document.cookie = `${expired}; domain=${domains.slice(i).join('.')}`;
+          }
+        }
+      }
+    }
+
+    function applyChoice(choice) {
+      window['ga-disable-' + measurementId] = choice !== 'accepted';
+      if (choice !== 'accepted') {
+        trackingEnabled = false;
+        clearAnalyticsCookies();
+        return;
+      }
+      if (trackingEnabled) return;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      if (!scriptLoaded) {
+        window.gtag('js', new Date());
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+        script.addEventListener('error', () => {
+          console.error('Google Analytics kon niet worden geladen.');
+          status.textContent = 'Google Analytics is niet beschikbaar. Uw cookiekeuze blijft bewaard.';
+          showNotice();
+        });
+        document.head.appendChild(script);
+        scriptLoaded = true;
+      }
+      window.gtag('config', measurementId, {
+        cookie_prefix: 'idmb',
+        cookie_path: '/idmb/',
+        cookie_expires: lifetime / 1000
+      });
+      trackingEnabled = true;
+    }
+
+    function showNotice() {
+      notice.hidden = false;
+      settings.setAttribute('aria-expanded', 'true');
+    }
+
+    function saveChoice(choice) {
+      let saved = true;
+      status.textContent = '';
+      try {
+        localStorage.setItem(storageKey, JSON.stringify({choice, expires: Date.now() + lifetime}));
+      } catch (error) {
+        saved = false;
+        console.error('De IDMB-cookiekeuze kon niet worden opgeslagen.', error);
+        status.textContent = 'Uw keuze geldt voor dit bezoek, maar kon niet worden opgeslagen. Bij een volgend bezoek vragen we opnieuw toestemming.';
+      }
+      applyChoice(choice);
+      if (saved) {
+        notice.hidden = true;
+        settings.setAttribute('aria-expanded', 'false');
+        if (returnFocus || notice.contains(document.activeElement)) settings.focus();
+        returnFocus = false;
+      }
+    }
+
+    settings.addEventListener('click', () => {
+      returnFocus = true;
+      showNotice();
+      document.getElementById('cookie-title').focus();
+    });
+    document.getElementById('cookie-accept').addEventListener('click', () => saveChoice('accepted'));
+    document.getElementById('cookie-reject').addEventListener('click', () => saveChoice('rejected'));
+    window.addEventListener('storage', event => {
+      if (event.key !== storageKey && event.key !== null) return;
+      const choice = readChoice();
+      applyChoice(choice);
+      if (!choice) showNotice();
+    });
+    const choice = readChoice();
+    applyChoice(choice);
+    if (!choice) showNotice();
+  })();
+</script>
 <script>
   const heroVideo = document.querySelector('.hero-card video');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');

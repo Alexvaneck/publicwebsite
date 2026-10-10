@@ -7,6 +7,15 @@ Its robots meta tag explicitly permits indexing and following links.
 The homepage loads Google Analytics using Google tag ID G-59P9G417BB
 in both desk and teletext views.
 
+The IDMB page (/idmb/) only loads Google Analytics (G-PK9D34W1EP)
+after explicit acceptance in its cookie notice. Accepting and rejecting
+are stored locally for 180 days; Cookie-instellingen in the footer
+reopens the notice. Rejection disables this page's tracking and removes
+its Analytics cookies. IDMB uses the idmb cookie prefix and /idmb/ path
+to keep its cookies separate from the homepage. If browser storage fails,
+the notice reports this and the choice only applies to the current visit.
+Run consent tests: node --test tests/idmb-consent.test.cjs
+
 Interactions:
 - Lamp: click the lamp shade to toggle the lower light glow.
 - Monitor: carousel of websites with left/right arrows; click a card for a modal and live URL.
