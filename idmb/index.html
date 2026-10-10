@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IDMB RE B.V. — Vastgoed & ontwikkeling</title>
+  <meta name="description" content="Conceptwebsite voor IDMB RE B.V. — ontwikkeling, investering en beheer van vastgoed." />
+  <style>
+    :root{--ink:#102b29;--muted:#667472;--sand:#f6f2ea;--gold:#b28b45;--line:#dde3df;--white:#fff;--max:1280px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff} a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
+    .wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(16,43,41,.08)}
+    .nav{height:86px;display:flex;align-items:center;justify-content:space-between;gap:30px}.brand img{height:58px;width:auto}.menu{display:flex;align-items:center;gap:30px;font-size:14px}.menu a{position:relative}.menu a:not(.btn):after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:1px;background:var(--ink);transition:.25s}.menu a:hover:after{width:100%}.btn{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:white;padding:14px 20px;font-weight:700;font-size:13px;letter-spacing:.01em}.btn.light{background:#fff;color:var(--ink);border:1px solid rgba(255,255,255,.6)}.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+    .hero{padding:22px 0 92px}.hero-card{position:relative;min-height:650px;overflow:hidden;background:#ddd}.hero-card>img,.hero-card>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,37,35,.84) 0%,rgba(9,37,35,.55) 38%,rgba(9,37,35,.08) 72%)}.hero-content{position:relative;z-index:2;color:white;padding:76px 64px;max-width:720px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.26em;font-weight:800}.hero h1{font-size:clamp(54px,6vw,92px);line-height:.92;margin:24px 0 26px;letter-spacing:-.045em;font-weight:560}.hero p{font-size:20px;line-height:1.55;max-width:610px;color:rgba(255,255,255,.9)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}.hero-tag{position:absolute;z-index:3;right:0;bottom:0;background:white;padding:20px 28px;min-width:320px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700}
+    section{padding:100px 0}.intro{display:grid;grid-template-columns:1fr 1.1fr;gap:120px;align-items:start}.intro h2,.section-head h2{font-size:clamp(42px,5vw,70px);line-height:1.02;letter-spacing:-.04em;margin:12px 0}.intro-copy{font-size:21px;line-height:1.65;color:#475956;padding-top:40px}.text-link{display:inline-flex;margin-top:20px;font-weight:800;border-bottom:1px solid var(--ink);padding-bottom:5px}
+    .disciplines{background:var(--sand)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:50px;margin-bottom:42px}.section-head p{max-width:560px;color:#5d6b69;line-height:1.7}.cards4{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #cfd5d1}.discipline{padding:34px 26px 10px 0;min-height:220px;border-right:1px solid #cfd5d1}.discipline:last-child{border-right:0}.num{font-size:12px;color:#7d8987}.discipline h3{font-size:24px;margin:55px 0 12px}.discipline p{color:#61706d;line-height:1.55;font-size:14px}
+    .projects .section-head{margin-bottom:36px}.project-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:20px}.project-main{position:relative;height:610px;overflow:hidden}.project-main img,.project-card img{width:100%;height:100%;object-fit:cover}.project-main .overlay{position:absolute;left:0;right:0;bottom:0;padding:34px;background:linear-gradient(0deg,rgba(7,29,27,.8),transparent);color:#fff}.overlay h3{font-size:36px;margin:8px 0}.project-side{display:grid;grid-template-rows:1fr 1fr;gap:20px}.project-card{position:relative;min-height:295px;overflow:hidden;background:#eee}.project-card .mini{position:absolute;left:18px;bottom:18px;background:white;padding:16px 18px;min-width:220px}.mini strong{display:block;font-size:18px}.mini span{font-size:12px;color:#64716f}.project-list{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:22px}.project-list .item{border:1px solid var(--line);padding:12px}.project-list img{height:245px;object-fit:cover;width:100%}.project-list h4{font-size:21px;margin:16px 4px 6px}.project-list p{margin:0 4px 12px;color:#687673;font-size:13px}
+    .statement{background:var(--ink);color:#fff}.statement .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:100px;align-items:center}.statement h2{font-size:clamp(48px,5vw,76px);line-height:1;letter-spacing:-.04em;margin:15px 0}.statement p{font-size:18px;line-height:1.8;color:#d6dedc}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.18)}.stat{background:var(--ink);padding:28px}.stat strong{display:block;font-size:38px}.stat span{font-size:13px;color:#c7d1cf}
+    .partners{text-align:center}.partners h2{font-size:40px;margin:8px 0 10px}.partners p{color:#687673}.logo-row{display:grid;grid-template-columns:repeat(5,1fr);align-items:center;gap:28px;margin-top:48px}.logo-cell{height:120px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:24px;background:white}.logo-cell img{max-height:66px;max-width:100%;object-fit:contain}
+    .cta{padding-top:40px}.cta-box{background:var(--sand);padding:76px;display:flex;justify-content:space-between;gap:50px;align-items:center}.cta-box h2{font-size:48px;line-height:1.03;letter-spacing:-.03em;margin:0;max-width:700px}.cta-box p{color:#65726f;max-width:470px;line-height:1.7}
+    footer{margin-top:90px;background:#071b1a;color:white;padding:54px 0 28px}.foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px}.foot h4{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:#9eb0ac}.foot p,.foot a{color:#d9e0de;line-height:1.8;font-size:14px}.credit{border-top:1px solid rgba(255,255,255,.12);margin-top:38px;padding-top:25px;display:flex;justify-content:space-between;align-items:center;color:#96aaa6;font-size:12px}.credit img{width:190px;max-height:44px;object-fit:contain;object-position:left center}
+    .mobile{display:none}.note{font-size:11px;color:#8a9693;margin-top:14px}
+    @media(max-width:900px){.wrap{width:min(100% - 28px,var(--max))}.menu{display:none}.mobile{display:block}.hero-card{min-height:600px}.hero-content{padding:60px 28px}.hero-tag{min-width:auto;width:100%;position:absolute}.intro,.statement .wrap{grid-template-columns:1fr;gap:25px}.intro-copy{padding-top:0}.cards4{grid-template-columns:1fr 1fr}.project-grid{grid-template-columns:1fr}.project-side{grid-template-columns:1fr 1fr;grid-template-rows:none}.project-list{grid-template-columns:1fr}.logo-row{grid-template-columns:1fr 1fr}.cta-box{padding:42px 28px;display:block}.foot{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:20px}.hero h1{font-size:58px}}
+    @media(max-width:580px){.cards4,.project-side,.logo-row{grid-template-columns:1fr}.hero-card{min-height:620px}.hero h1{font-size:50px}.hero p{font-size:17px}.hero-tag{font-size:12px}.project-main{height:500px}.cta-box h2{font-size:38px}.credit{display:block}.credit img{margin-top:20px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="assets/idmb-logo.jpeg" alt="IDMB RE" /></a>
+    <nav class="menu">
+      <a href="#over">Over ons</a><a href="#projecten">Projecten</a><a href="#disciplines">Disciplines</a><a href="#partners">Partners</a><a href="#contact">Contact</a>
+      <a class="btn" href="#contact">Neem contact op <span>↗</span></a>
+    </nav>
+    <div class="mobile">☰</div>
+  </div>
+</header>
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/centric-02.jpg" aria-hidden="true">
+          <source src="assets/animatie.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-content">
+          <div class="eyebrow">IDMB RE B.V. / Vastgoed & ontwikkeling</div>
+          <h1>Ruimte voor mogelijkheden.</h1>
+          <p>Wij zien kansen, verbinden partijen en creëren duurzame waarde in vastgoed. Van ontwikkeling en investering tot beheer.</p>
+          <div class="actions"><a class="btn light" href="#projecten">Ontdek onze projecten ↗</a><a class="btn ghost" style="color:white;border-color:white" href="#over">Meer over ons</a></div>
+        </div>
+        <a href="#projecten" class="hero-tag"><span>Uitgelicht: Centric IJsselstein</span><span>↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="over">
+    <div class="wrap intro">
+      <div><div class="eyebrow">Over IDMB RE</div><h2>Vastgoed zien zoals het kan zijn.</h2></div>
+      <div class="intro-copy">IDMB RE B.V. is een ondernemende vastgoedpartij met oog voor kansen en kwaliteit. We ontwikkelen, investeren en beheren met een langetermijnblik — samen met sterke partners en altijd met aandacht voor de omgeving.<br><a class="text-link" href="#disciplines">Ontdek onze werkwijze ↗</a><div class="note">Concepttekst — inhoud kan later worden aangescherpt.</div></div>
+    </div>
+  </section>
+
+  <section class="disciplines" id="disciplines">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">Onze expertise</div><h2>Van kans naar waarde.</h2></div><p>Een heldere aanpak voor vastgoed dat vandaag werkt en morgen relevant blijft.</p></div>
+      <div class="cards4">
+        <div class="discipline"><span class="num">01</span><h3>Ontwikkeling</h3><p>Locaties en gebouwen transformeren naar duurzame, toekomstbestendige plekken.</p></div>
+        <div class="discipline"><span class="num">02</span><h3>Investeren</h3><p>Kansen herkennen en benutten met een nuchtere, ondernemende blik.</p></div>
+        <div class="discipline"><span class="num">03</span><h3>Beheren</h3><p>Professioneel beheer met aandacht voor kwaliteit, rendement en continuïteit.</p></div>
+        <div class="discipline"><span class="num">04</span><h3>Samenwerken</h3><p>Met vaste en specialistische partners brengen we plannen daadwerkelijk tot uitvoering.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projecten">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">Projecten in beeld</div><h2>Waar plannen werkelijkheid worden.</h2></div><a class="text-link" href="#projectoverzicht">Bekijk alle projecten ↗</a></div>
+      <div class="project-grid">
+        <a class="project-main" href="https://www.ijsselstein20.nl/nieuwe-appartementen-in-zuiderpark-ijsselstein-voormalig-centric-pand-verkoop-in-volle-gang/" target="_blank" rel="noopener"><img src="assets/centric-01.jpg" alt="Centric IJsselstein"><div class="overlay"><div class="eyebrow">IJsselstein / wonen</div><h3>Centric / Zuiderpark</h3><span>Herontwikkeling naar een nieuwe woonomgeving ↗</span></div></a>
+        <div class="project-side">
+          <div class="project-card"><img src="assets/omgeving.jpg" alt="Hoge Biezen ontwikkeling"><div class="mini"><strong>Hoge Biezen</strong><span>Ontwikkeling / IJsselstein</span></div></div>
+          <a class="project-card" href="https://knik-houten.nl/" target="_blank" rel="noopener"><img src="assets/overzicht2.jpg" alt="Vastgoedontwikkeling"><div class="mini"><strong>KNIK Houten</strong><span>Samenwerking / ontwikkeling ↗</span></div></a>
+        </div>
+      </div>
+      <div class="project-list" id="projectoverzicht">
+        <div class="item"><img src="assets/centric-02.jpg" alt="Centric IJsselstein"><h4>Centric IJsselstein</h4><p>Wonen · Transformatie · In verkoop</p></div>
+        <div class="item"><img src="assets/omgeving2.jpg" alt="Hoge Biezen"><h4>Hoge Biezen</h4><p>Ontwikkeling · In voorbereiding</p></div>
+        <div class="item"><img src="assets/overzicht.jpg" alt="Projectontwikkeling"><h4>Nieuwe ontwikkeling</h4><p>Projectnaam en details volgen</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <div class="wrap">
+      <div><div class="eyebrow">Vastgoed met visie</div><h2>Kansen herkennen. Waarde creëren.</h2><p>Persoonlijk contact, korte lijnen en daadkracht staan centraal. We werken met een professionele netwerkstructuur om snel te kunnen schakelen wanneer zich kansen voordoen.</p></div>
+      <div class="stats"><div class="stat"><strong>01</strong><span>Ondernemend</span></div><div class="stat"><strong>02</strong><span>Betrouwbaar</span></div><div class="stat"><strong>03</strong><span>Daadkrachtig</span></div><div class="stat"><strong>04</strong><span>Langetermijnvisie</span></div></div>
+    </div>
+  </section>
+
+  <section class="partners" id="partners">
+    <div class="wrap"><div class="eyebrow">Samen sterker</div><h2>Partners & samenwerkingen</h2><p>Een selectie van partijen waarmee binnen projecten wordt samengewerkt.</p>
+      <div class="logo-row">
+        <div class="logo-cell"><img src="assets/jongerius.png" alt="Jongerius Invest B.V."></div>
+        <div class="logo-cell"><img src="assets/prevastgoed.png" alt="Pre Vastgoed"></div>
+        <div class="logo-cell"><img src="assets/stimer.png" alt="Stimer Real Estate"></div>
+        <div class="logo-cell"><img src="assets/post-logo.jpeg" alt="POST"></div>
+        <div class="logo-cell"><img src="assets/averesch-logo.png" alt="Averesch BV"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact"><div class="wrap"><div class="cta-box"><div><div class="eyebrow">Kennismaken?</div><h2>Een kans, locatie of project bespreken?</h2></div><div><p>We komen graag in contact met grondeigenaren, ontwikkelaars, investeerders en andere partijen die kansen zien in vastgoed.</p><a href="mailto:info@speebeheer.nl" class="btn">Neem contact op ↗</a></div></div></div></section>
+</main>
+<footer><div class="wrap"><div class="foot"><div><h4>IDMB RE B.V.</h4><p>Vastgoed & ontwikkeling<br>Conceptwebsite</p></div><div><h4>Navigatie</h4><p><a href="#over">Over ons</a><br><a href="#projecten">Projecten</a><br><a href="#disciplines">Disciplines</a><br><a href="#partners">Partners</a></p></div><div><h4>Contact</h4><p><a href="mailto:info@speebeheer.nl">info@speebeheer.nl</a><br>Contactgegevens kunnen in definitieve versie worden aangevuld.</p></div></div><div class="credit"><span>© 2026 IDMB RE B.V. · Eerste visueel concept</span><img src="assets/alexvaneck-logo.png" alt="Alex Vaneck"></div></div></footer>
+<script>
+  const heroVideo = document.querySelector('.hero-card video');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const updateHeroVideo = () => {
+    if (reducedMotion.matches) {
+      heroVideo.pause();
+    } else {
+      heroVideo.play().catch(error => {
+        if (error.name !== 'AbortError') console.error('De IDMB-heroanimatie kon niet worden afgespeeld.', error);
+      });
+    }
+  };
+  reducedMotion.addEventListener('change', updateHeroVideo);
+  updateHeroVideo();
+</script>
+</body></html>

@@ -1,0 +1,48 @@
+.weather-scene{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.weather-wall-image{filter:brightness(var(--wall-brightness,1)) saturate(var(--wall-saturation,1));transition:filter 3s ease}
+.weather-window-image{filter:brightness(var(--window-brightness,1)) saturate(var(--window-saturation,1));transition:filter 3s ease}
+.weather-wall-tint{fill:var(--weather-tint,#172d4b);opacity:var(--wall-tint-opacity,0);transition:fill 3s ease,opacity 3s ease}
+.weather-window-tint{fill:var(--weather-tint,#172d4b);opacity:var(--window-tint-opacity,0);transition:fill 3s ease,opacity 3s ease}
+.weather-stars{fill:#dcecff;opacity:var(--weather-stars,0);transition:opacity 3s ease}
+.weather-moon{fill:#e4eaf0;opacity:var(--weather-moon,0);transition:opacity 3s ease}
+.window-weather{display:none;position:absolute;inset:0;z-index:3;pointer-events:none;-webkit-mask-image:url("weather-glass-mask.png?v=20261009-tower");mask-image:url("weather-glass-mask.png?v=20261009-tower");-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;mask-mode:alpha}
+@supports ((-webkit-mask-image:url("")) or (mask-image:url(""))){.window-weather{display:block}}
+.weather-rain,.weather-snow,.weather-fog{position:absolute;inset:0;opacity:0;transition:opacity 3s ease}
+.weather-rain,.weather-snow{right:auto;bottom:auto;width:10%;height:46%}
+.weather-rain{background-image:linear-gradient(105deg,transparent 0 46%,rgba(205,227,245,.7) 48% 50%,transparent 52%);background-size:29px 82px;animation:windowRain .48s linear infinite;opacity:var(--weather-rain,0)}
+.weather-rain::before,.weather-rain::after,.weather-snow::before,.weather-snow::after{content:"";position:absolute;inset:-12px;pointer-events:none}
+.weather-rain::before{background-image:linear-gradient(105deg,transparent 0 46%,rgba(201,221,238,.38) 48% 49%,transparent 51%);background-size:17px 53px;animation:windowRainDistant .75s linear infinite;animation-delay:-.3s}
+.weather-rain::after{background-image:linear-gradient(105deg,transparent 0 45%,rgba(231,243,252,.85) 48% 50%,transparent 53%);background-size:47px 127px;animation:windowRainNear .38s linear infinite;animation-delay:-.17s}
+.weather-snow{background-image:radial-gradient(circle at 18% 22%,rgba(255,255,255,.9) 0 2px,transparent 3px),radial-gradient(circle at 72% 64%,rgba(245,250,255,.8) 0 1.5px,transparent 2.5px);background-size:61px 97px,83px 139px;animation:windowSnow 5s linear infinite;opacity:var(--weather-snow,0)}
+.weather-snow::before{background-image:radial-gradient(circle at 38% 35%,rgba(233,242,253,.55) 0 1px,transparent 1.8px),radial-gradient(circle at 81% 76%,rgba(233,242,253,.4) 0 .8px,transparent 1.6px);background-size:43px 73px,67px 109px;animation:windowSnowDistant 8s linear infinite,windowSnowDrift 6s ease-in-out infinite alternate;animation-delay:-3s,-2s}
+.weather-snow::after{background-image:radial-gradient(circle at 26% 18%,rgba(255,255,255,.95) 0 2.5px,transparent 4px),radial-gradient(circle at 75% 71%,rgba(255,255,255,.85) 0 2px,transparent 3px);background-size:107px 173px,137px 211px;animation:windowSnowNear 4s linear infinite,windowSnowDrift 4.5s ease-in-out infinite alternate-reverse;animation-delay:-1.6s,-1s}
+.weather-rain,.weather-snow,.weather-rain::before,.weather-rain::after,.weather-snow::before,.weather-snow::after{animation-play-state:paused}
+.stage[data-weather="rain"] .weather-rain,.stage[data-weather="rain"] .weather-rain::before,.stage[data-weather="rain"] .weather-rain::after,
+.stage[data-weather="storm"] .weather-rain,.stage[data-weather="storm"] .weather-rain::before,.stage[data-weather="storm"] .weather-rain::after,
+.stage[data-weather="snow"] .weather-snow,.stage[data-weather="snow"] .weather-snow::before,.stage[data-weather="snow"] .weather-snow::after{animation-play-state:running}
+html.tt-mode .weather-rain,html.tt-mode .weather-snow,html.tt-mode .weather-rain::before,html.tt-mode .weather-rain::after,html.tt-mode .weather-snow::before,html.tt-mode .weather-snow::after{animation-play-state:paused}
+.weather-fog{background:linear-gradient(90deg,rgba(218,226,230,.5),rgba(218,226,230,.1) 12%,transparent 15%);opacity:var(--weather-fog,0)}
+.stage[data-day-phase] .sun-glow{animation:sunDrift 16s ease-in-out infinite alternate;opacity:var(--weather-sun-glow,0);transition:opacity 3s ease}
+.stage[data-day-phase] .sun-shadow{animation:shadowDrift 20s ease-in-out infinite alternate;opacity:var(--weather-sun-shadow,0);transition:opacity 3s ease}
+.weather-caption{max-width:1536px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;background:#17110c;color:#d5c7b8;font-size:12px;line-height:1.5}
+.weather-caption a{color:inherit;text-underline-offset:3px}
+.weather-caption a:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+.phone-weather{position:absolute;inset:0;width:100%;height:100%;z-index:25;pointer-events:none}
+.phone-weather-projection{width:152px;height:300px;transform-origin:0 0;transform:matrix3d(0.720997577626,-0.093195331425,0,-0.000126624092,-0.379726638773,-0.201707112971,0,-0.00070292887,0,0,1,0,166,736,0,1)}
+.phone-weather text{fill:#edf5fc;font-family:inherit}
+.phone-weather-location{font-size:15px;font-weight:650}
+.phone-weather-icon{fill:none;stroke:#f7ce77;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.phone-weather-temperature{font-size:43px;font-weight:650;letter-spacing:-2px}
+.phone-weather-condition{font-size:13px}
+.phone-weather-time{font-size:10px;fill:#edf5fcb3!important}
+@keyframes windowRain{to{background-position:-29px 82px}}
+@keyframes windowRainDistant{to{background-position:-17px 53px}}
+@keyframes windowRainNear{to{background-position:-47px 127px}}
+@keyframes windowSnow{to{background-position:0 97px,0 139px}}
+@keyframes windowSnowDistant{to{background-position:0 73px,0 109px}}
+@keyframes windowSnowNear{to{background-position:0 173px,0 211px}}
+@keyframes windowSnowDrift{from{transform:translateX(-7px)}to{transform:translateX(7px)}}
+@media(prefers-reduced-motion:reduce){
+  .weather-rain,.weather-snow,.weather-rain::before,.weather-rain::after,.weather-snow::before,.weather-snow::after{animation:none}
+  .weather-wall-image,.weather-window-image,.weather-wall-tint,.weather-window-tint,.weather-stars,.weather-moon,.weather-rain,.weather-snow,.weather-fog,.stage[data-day-phase] .sun-glow,.stage[data-day-phase] .sun-shadow{transition:none}
+}

@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+*netrc*
+.env
+.env.*
+*.pem
+*.key
+*.before-*.html
+.deploy-backups/
+__pycache__/
+*.pyc

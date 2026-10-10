@@ -1,0 +1,12 @@
+{
+  "name": "alexvaneck-publicwebsite",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "node scripts/deploy.cjs",
+    "test": "node --test tests/*.test.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

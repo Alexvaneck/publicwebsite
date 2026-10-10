@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-59P9G417BB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-59P9G417BB');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>alexvaneck</title>
+<meta name="robots" content="index, follow">
+<meta name="description" content="Interactieve homepage van Alex van Eck met websites, X17, TEDx, Enjoycleaningup en projecten.">
+<style>
+:root{
+  --yellow:#fbc23a;
+  --gold:#d89a18;
+  --ink:#17130f;
+  --paper:#fffaf0;
+  --glass:rgba(248,241,230,.94);
+  --screen:#071018;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#17110c;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}
+body{overflow-x:hidden}
+button,a{font:inherit}
+button{cursor:pointer}
+.page{width:100%;background:#17110c}
+.stage-wrap{width:100%;max-width:1536px;margin:0 auto;position:relative;background:#a97445}
+.stage{position:relative;width:100%;aspect-ratio:1448/1086;overflow:hidden;isolation:isolate}
+.desk-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:0;user-select:none;-webkit-user-drag:none}
+
+/* subtle moving daylight — deliberately avoids the intro block */
+.sun-glow{position:absolute;z-index:1;inset:-5%;pointer-events:none;mix-blend-mode:screen;opacity:.46;background:radial-gradient(circle at 57% 24%,rgba(255,230,167,.28),transparent 31%),linear-gradient(114deg,transparent 14%,rgba(255,214,120,.08) 31%,transparent 46%);-webkit-mask-image:linear-gradient(90deg,transparent 0 30%,rgba(0,0,0,.2) 34%,#000 40%,#000 100%);mask-image:linear-gradient(90deg,transparent 0 30%,rgba(0,0,0,.2) 34%,#000 40%,#000 100%);animation:sunDrift 16s ease-in-out infinite alternate,sunFlicker 5.8s ease-in-out infinite}
+.sun-shadow{position:absolute;z-index:2;inset:-3%;pointer-events:none;opacity:.11;background:linear-gradient(113deg,transparent 0 27%,rgba(84,54,25,.17) 31% 32%,transparent 37% 49%,rgba(84,54,25,.10) 52% 53%,transparent 58%);-webkit-mask-image:linear-gradient(90deg,transparent 0 31%,rgba(0,0,0,.35) 35%,#000 41%,#000 100%);mask-image:linear-gradient(90deg,transparent 0 31%,rgba(0,0,0,.35) 35%,#000 41%,#000 100%);animation:shadowDrift 20s ease-in-out infinite alternate,shadowFlicker 6.4s ease-in-out infinite}
+@keyframes sunDrift{from{transform:translate3d(-1.1%,0,0) scale(1.015)}to{transform:translate3d(1.25%,.5%,0) scale(1.035)}}
+@keyframes shadowDrift{from{transform:translateX(-.8%)}to{transform:translateX(1.35%)}}
+@keyframes sunFlicker{0%,100%{opacity:.43}12%{opacity:.47}26%{opacity:.41}39%{opacity:.465}55%{opacity:.425}72%{opacity:.48}86%{opacity:.44}}
+@keyframes shadowFlicker{0%,100%{opacity:.10}18%{opacity:.125}34%{opacity:.095}49%{opacity:.12}66%{opacity:.09}82%{opacity:.115}}
+
+/* lamp: hotspot is only on the lamp shade; light effect stays below */
+.lamp-hotspot{position:absolute;z-index:28;left:20.0%;top:25.2%;width:11.2%;height:12.4%;border:0;background:transparent;border-radius:50%;padding:0}
+.lamp-glow{position:absolute;z-index:3;left:17.7%;top:36.8%;width:13.0%;height:24.2%;pointer-events:none;background:radial-gradient(ellipse at 52% 0%,rgba(255,229,158,.52),rgba(255,186,62,.14) 43%,transparent 76%);mix-blend-mode:screen;transition:opacity .5s ease;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 68%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 68%,transparent 100%)}
+.lamp-dim{position:absolute;z-index:4;left:17.9%;top:37.1%;width:12.7%;height:23.0%;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(24,19,14,.34),rgba(24,19,14,.10) 48%,transparent 80%);opacity:0;transition:opacity .5s ease;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 13%,#000 70%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 13%,#000 70%,transparent 100%)}
+.stage.lamp-off .lamp-glow{opacity:0}.stage.lamp-off .lamp-dim{opacity:1}
+
+/* keep the monitor close to the artwork: no extra slider UI, only the centre website is clickable */
+.monitor-ui{display:none}
+.monitor-center-hotspot{position:absolute;z-index:18;left:43.78%;top:23.05%;width:18.82%;height:21.05%;border:0;background:transparent;border-radius:10px;padding:0;cursor:pointer}
+.monitor-center-hotspot:hover{outline:2px solid rgba(251,194,58,.92);outline-offset:3px;background:rgba(251,194,58,.05)}
+.monitor-nav-hotspot{position:absolute;z-index:30;top:19.20%;height:1.75%;border:0;background:transparent;border-radius:4px;padding:0;cursor:pointer;transform:translate(13px,3px)}
+.monitor-nav-hotspot.projects{left:58.62%;width:3.60%}
+.monitor-nav-hotspot.about{left:63.20%;width:3.42%}
+.monitor-nav-hotspot.contact{left:67.10%;width:3.45%}
+@media(hover:hover) and (pointer:fine){.monitor-nav-hotspot:hover{background:rgba(251,194,58,.07);outline:1px solid rgba(251,194,58,.75);outline-offset:1px}}
+
+/* TEDx: only the lettering is clickable */
+.tedx-link{position:absolute;z-index:30;left:80.72%;top:52.02%;width:4.85%;height:3.05%;display:block;border-radius:3px}
+.steam{position:absolute;z-index:22;left:79.55%;top:38.65%;width:5.0%;height:10.25%;pointer-events:none;filter:blur(.25px)}
+.steam span{position:absolute;bottom:0;width:16%;height:72%;border-radius:50%;border-left:2px solid rgba(255,255,255,.80);opacity:0;animation:steamRise 4.4s ease-in-out infinite;transform-origin:bottom center}
+.steam span:nth-child(1){left:4%;height:68%;animation-delay:0s}.steam span:nth-child(2){left:31%;height:92%;animation-delay:1.0s}.steam span:nth-child(3){left:59%;height:73%;animation-delay:2.05s}.steam span:nth-child(4){left:80%;height:58%;animation-delay:3.0s}
+.debug-layout .steam{outline:2px solid #00e5ff;filter:none;background:rgba(0,229,255,.12)}
+.debug-layout .steam span{outline:1px dashed #ff3d71;background:rgba(255,61,113,.18);opacity:1;animation:none}
+.debug-layout .monitor-nav-hotspot{outline:1px solid #00e5ff;background:rgba(0,229,255,.20)}
+.debug-layout .about-hotspot{outline:2px solid #ff3d71;background:rgba(255,61,113,.20)}
+@keyframes steamRise{0%{opacity:0;transform:translate3d(0,10%,0) rotate(0deg) scale(.82)}16%{opacity:.72}42%{opacity:.50;transform:translate3d(-7%,-18%,0) rotate(-3deg) scale(.98)}70%{opacity:.28;transform:translate3d(9%,-52%,0) rotate(4deg) scale(1.08)}100%{opacity:0;transform:translate3d(-4%,-88%,0) rotate(-2deg) scale(1.18)}}
+
+
+/* X17 click target: follows the visible robot body and stays above decorative arm layers */
+.x17-link{position:absolute;z-index:34;left:39.55%;top:44.65%;width:28.25%;height:21.30%;display:block;border-radius:14px;background:transparent}
+
+/* X17 arm: only the lower forearm moves, around the actual elbow hinge at x=525,y=605. */
+.x17-arm-cleaner{position:absolute;z-index:26;inset:0;width:100%;height:100%;pointer-events:none}
+.forearm-cutout{position:absolute;z-index:27;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;clip-path:polygon(36.3% 54.4%,37.6% 56.0%,37.4% 58.7%,36.4% 61.0%,35.3% 63.0%,35.4% 65.0%,34.5% 66.5%,33.4% 65.1%,32.0% 64.3%,31.1% 62.2%,31.5% 60.2%,32.5% 59.2%,33.1% 57.4%,34.0% 55.7%,35.0% 54.6%);transform-origin:36.26% 55.71%;animation:forearmHinge 4.6s cubic-bezier(.45,0,.2,1) infinite;will-change:transform}
+@keyframes forearmHinge{0%,20%{transform:rotate(0deg)}48%{transform:rotate(4.2deg)}64%{transform:rotate(4.2deg)}100%{transform:rotate(0deg)}}
+
+/* book click layers */
+.book-link{position:absolute;z-index:26;display:block;border-radius:7px}
+.book-hondtrouw{left:0;top:53.0%;width:26.6%;height:10.5%}
+.book-vrolike{left:0;top:59.6%;width:27.0%;height:10.3%}
+
+
+/* poster on wall */
+.poster-link{position:absolute;z-index:26;left:76.95%;top:.35%;width:17.15%;height:39.05%;display:block;border-radius:4px;transform:translateX(20px)}
+
+/* read more hotspot over the text baked into the image */
+.about-hotspot{position:absolute;z-index:32;left:13.18%;top:21.55%;width:6.75%;height:2.15%;border:0;background:transparent;border-radius:5px;padding:0;transform:translateY(5px)}
+
+/* documents fan */
+.docs-button{position:absolute;z-index:29;right:.8%;top:61.7%;width:24.6%;height:27.4%;border:0;background:transparent;border-radius:18px;padding:0}
+.paper-fan{position:absolute;z-index:50;right:2.7%;bottom:5.8%;width:58%;height:63%;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.paper-fan.open{opacity:1;pointer-events:auto}
+.paper{position:absolute;right:0;bottom:0;width:47%;height:72%;border-radius:10px;background:var(--paper);border:1px solid rgba(79,58,35,.16);box-shadow:0 20px 48px rgba(28,20,12,.30);padding:6%;transform-origin:91% 94%;opacity:0;transition:transform .52s cubic-bezier(.2,.9,.25,1),opacity .28s ease;overflow:auto}
+.paper-fan.open .paper{opacity:1}.paper-fan.open .paper:nth-child(1){transform:translate(-88%,-7%) rotate(-17deg)}.paper-fan.open .paper:nth-child(2){transform:translate(-56%,-29%) rotate(-7deg)}.paper-fan.open .paper:nth-child(3){transform:translate(-22%,-32%) rotate(5deg)}.paper-fan.open .paper:nth-child(4){transform:translate(13%,-12%) rotate(14deg)}
+.paper h3{margin:0 0 .65rem;font-size:clamp(13px,1.35vw,22px);letter-spacing:-.035em}.paper p{margin:0;font-size:clamp(8px,.78vw,13px);line-height:1.55;color:#5a4c3d}.paper-close{position:absolute;z-index:55;right:0;bottom:0;border:0;border-radius:999px;background:#1d1711;color:white;font-weight:800;padding:.62rem .9rem;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+
+/* invisible keyboard hit grid */
+.keyboard-zone{position:absolute;z-index:31;left:22.15%;top:67.15%;width:38.95%;height:9.35%;display:grid;grid-template-columns:repeat(14,1fr);grid-template-rows:repeat(4,1fr);gap:.35% .25%;transform:perspective(900px) rotateX(1.5deg) rotateZ(.15deg);transform-origin:center center}
+.key-hit{border:0;background:transparent;border-radius:4px;padding:0;cursor:default;transform:translateY(0) scale(1);transition:transform .055s ease,background .055s ease,box-shadow .055s ease;pointer-events:auto}
+.key-hit.key-press{transform:translateY(1.5px) scale(.94);background:rgba(251,194,58,.14);box-shadow:inset 0 1px 2px rgba(0,0,0,.28),0 0 5px rgba(251,194,58,.20)}
+.sound-toast{position:absolute;z-index:70;left:50%;bottom:3%;transform:translateX(-50%) translateY(8px);background:rgba(19,15,11,.78);color:white;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 12px;font-size:clamp(8px,.72vw,12px);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:.25s ease}.sound-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* click affordance appears only on intentional hover */
+.hotspot-outline{outline:2px solid transparent;outline-offset:2px;transition:outline-color .16s ease,background .16s ease}
+@media(hover:hover) and (pointer:fine){.lamp-hotspot:hover,.tedx-link:hover,.book-link:hover,.poster-link:hover,.docs-button:hover,.x17-link:hover{outline:2px solid rgba(251,194,58,.92);outline-offset:3px;background:rgba(251,194,58,.05)}.about-hotspot:hover{outline:1px solid rgba(251,194,58,.9);outline-offset:1px;background:rgba(251,194,58,.06)}}
+:focus-visible{outline:3px solid white!important;outline-offset:4px!important}
+
+/* modals */
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(20,15,10,.58);backdrop-filter:blur(9px);opacity:0;pointer-events:none;transition:opacity .25s ease}.modal.open{opacity:1;pointer-events:auto}.modal-card{width:min(760px,94vw);max-height:88vh;overflow:auto;border-radius:24px;background:#f8f1e6;box-shadow:0 32px 90px rgba(0,0,0,.35);padding:26px;transform:translateY(14px) scale(.985);transition:.25s ease}.modal.open .modal-card{transform:none}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}.modal-head h2{margin:0;font-size:clamp(24px,4vw,42px);letter-spacing:-.045em}.modal-close{width:44px;height:44px;border:0;border-radius:999px;background:#201a14;color:white;font-size:27px;line-height:1}.browser{overflow:hidden;border-radius:17px;border:1px solid rgba(67,49,31,.13);background:white}.browser-bar{height:42px;background:#eee7dc;display:flex;align-items:center;gap:7px;padding:0 14px}.b-dot{width:10px;height:10px;border-radius:50%;background:#d6c7b3}.b-dot:nth-child(1){background:#eb6a5d}.b-dot:nth-child(2){background:#efbd4b}.b-dot:nth-child(3){background:#61bf52}.address{margin-left:8px;flex:1;background:white;border-radius:999px;padding:6px 12px;color:#73685d;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.project-nav-arrow{width:27px;height:27px;border:1px solid rgba(67,49,31,.18);border-radius:50%;background:#fff;color:#35291d;padding:0;font-size:19px;line-height:1}.project-nav-arrow:hover{background:var(--yellow)}.project-preview{min-height:300px;padding:36px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(145deg,#efba22,#2f3932 55%,#f1eadd);background-size:cover;background-position:center;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.65)}.project-preview h3{font-size:clamp(31px,5vw,58px);line-height:.95;letter-spacing:-.055em;margin:0 0 12px}.project-preview p{font-size:16px;line-height:1.5;max-width:560px;margin:0}.modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.modal-actions a,.modal-actions button{display:inline-flex;min-height:44px;align-items:center;justify-content:center;padding:0 18px;border-radius:999px;border:1px solid rgba(42,32,22,.14);font-weight:850;text-decoration:none;color:#18130e;background:white}.modal-actions .primary{background:var(--yellow)}
+.about-copy{font-size:16px;line-height:1.65;color:#53483e}.about-copy p{margin:.2rem 0 1rem}
+.nav-screen{border:1px solid rgba(67,49,31,.13);border-radius:18px;background:#fff;padding:24px;min-height:260px}
+.nav-screen .placeholder-label{display:inline-flex;padding:5px 9px;border-radius:999px;background:#f3eadb;color:#78634b;font-size:12px;font-weight:800;margin-bottom:14px}
+.nav-screen h3{font-size:clamp(24px,3.5vw,42px);margin:0 0 10px;letter-spacing:-.04em}
+.nav-screen p{margin:0;color:#5a4c3d;line-height:1.6;max-width:620px}
+.nav-screen .content-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.nav-screen .content-slot{min-height:90px;border:1px dashed #ccbda9;border-radius:12px;padding:13px;background:#fcf8f1;font-size:13px;color:#756554}.nav-screen .content-slot a{display:flex;min-height:62px;align-items:center;justify-content:center;border-radius:7px;background:#201a14;color:#fff;font-weight:800;text-align:center;text-decoration:none}.nav-screen .content-slot a:hover{background:var(--yellow);color:#18130e}
+
+@media(max-width:760px){
+  .monitor-center-hotspot{left:43.6%;top:23.3%;width:19.1%;height:21.2%}.monitor-nav-hotspot{top:19.20%;height:1.9%}.monitor-nav-hotspot.projects{left:58.55%;width:3.75%}.monitor-nav-hotspot.about{left:63.10%;width:3.60%}.monitor-nav-hotspot.contact{left:67.00%;width:3.65%}.paper-fan{width:86%;height:54%;right:2%;bottom:7%}.paper{width:60%}.paper-fan.open .paper:nth-child(1){transform:translate(-55%,-6%) rotate(-13deg)}.paper-fan.open .paper:nth-child(2){transform:translate(-35%,-22%) rotate(-5deg)}.paper-fan.open .paper:nth-child(3){transform:translate(-12%,-26%) rotate(5deg)}.paper-fan.open .paper:nth-child(4){transform:translate(9%,-8%) rotate(12deg)}.nav-screen .content-slots{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.sun-glow,.sun-shadow,.steam span,.forearm-cutout{animation:none!important}.carousel-track,.paper,.modal,.modal-card{transition:none!important}}
+
+/* teletext version for phones */
+#teletext{display:none}
+html.tt-mode,html.tt-mode body{background:#000}
+html.tt-mode .page,html.tt-mode .modal{display:none!important}
+html.tt-mode #teletext{display:block}
+#teletext{min-height:100vh;min-height:100dvh;color:#fff;font-family:"Courier New",ui-monospace,Menlo,monospace;font-size:min(4.05vw,19px);line-height:1.4;-webkit-text-size-adjust:100%}
+#teletext .tt-screen{max-width:40ch;margin:0 auto;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:#000}
+#teletext .tt-head{display:flex;justify-content:space-between;background:#000;color:#ff0;font-weight:700;white-space:pre}
+#teletext .tt-pn{display:flex;align-items:center}
+#teletext .tt-pn input{width:3ch;padding:0;margin:0;border:0;border-bottom:2px solid #ff0;border-radius:0;background:transparent;color:#ff0;font:inherit;text-align:left;caret-color:#ff0;-moz-appearance:textfield;appearance:none}
+#teletext .tt-pn input:focus{outline:0;background:#00f}
+#teletext .tt-body{flex:1;padding:.4em 0 1em}
+#teletext .tt-title{display:block;background:#00f;padding:.15em .5ch;margin:.3em 0;font-size:1.7em;line-height:1.15;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+#teletext .tt-h{display:block;background:#00f;color:#ff0;padding:0 .5ch;margin-top:.9em;font-weight:700;text-transform:uppercase}
+#teletext .tt-t{display:block;color:#0ff;padding:0 .5ch;white-space:pre-wrap;overflow-wrap:anywhere}
+#teletext .tt-sp{display:block;height:.7em}
+#teletext a{color:inherit;text-decoration:none}
+#teletext .tt-l{display:flex;gap:1.5ch;padding:.15em .5ch;color:#fff;-webkit-tap-highlight-color:transparent}
+#teletext .tt-l b{color:#ff0}
+#teletext .tt-l:active,#teletext .tt-l:focus-visible{background:#ff0;color:#000;outline:0}
+#teletext .tt-l:active b,#teletext .tt-l:focus-visible b{color:#000}
+#teletext .tt-x{display:block;padding:.15em .5ch;color:#0f0;overflow-wrap:anywhere}
+#teletext .tt-x:active,#teletext .tt-x:focus-visible{background:#0f0;color:#000;outline:0}
+#teletext .tt-fast{position:sticky;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#000}
+#teletext .tt-fast a{display:block;padding:.5em .3ch;text-align:center;color:#000;font-weight:700;font-size:.8em}
+#teletext .tt-fast a:nth-child(1){background:#f00;color:#fff}#teletext .tt-fast a:nth-child(2){background:#0f0}#teletext .tt-fast a:nth-child(3){background:#ff0}#teletext .tt-fast a:nth-child(4){background:#0ff}
+#teletext .tt-foot{color:#888;text-align:center;font-size:.75em;padding:.4em 0 .6em}
+#teletext .tt-foot a{color:#0ff;text-decoration:underline}
+</style>
+<link rel="stylesheet" href="assets/desk-weather.css?v=20261009-tower">
+<script src="assets/desk-weather.js" defer></script>
+</head>
+<body>
+<main class="page">
+  <section class="stage-wrap" aria-label="Interactieve werkplek van Alex">
+    <div class="stage" id="stage">
+      <img class="desk-bg" src="assets/desk.png" alt="Warme werkplek van Alex met monitor, X17 robot, boeken, TEDx mok en documenten">
+      <div class="sun-glow" aria-hidden="true"></div>
+      <div class="sun-shadow" aria-hidden="true"></div>
+      <svg class="weather-scene" viewBox="0 0 1448 1086" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="weatherWallFade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff"/><stop offset=".8" stop-color="#fff"/><stop offset="1" stop-color="#000"/>
+          </linearGradient>
+          <linearGradient id="weatherWindowFade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff"/><stop offset=".85" stop-color="#fff"/><stop offset="1" stop-color="#000"/>
+          </linearGradient>
+          <mask id="weatherWallMask" maskUnits="userSpaceOnUse" x="0" y="0" width="1448" height="1086">
+            <rect x="145" width="1303" height="590" fill="url(#weatherWallFade)"/>
+            <rect x="170" y="48" width="418" height="241" rx="7" fill="#000"/>
+            <rect x="461" y="168" width="665" height="418" rx="23" fill="#000"/>
+            <path d="M1125 0H1427V442H1125Z" fill="#000"/>
+            <path d="M347 258C359 252 375 258 385 272L449 352Q455 362 447 368Q376 394 303 380C302 351 315 307 329 282L343 275Z" fill="#000"/>
+            <path d="M182 535L164 402Q153 382 180 370L313 296" fill="none" stroke="#000" stroke-width="22" stroke-linejoin="round"/>
+            <circle cx="176" cy="383" r="22" fill="#000"/><circle cx="313" cy="298" r="17" fill="#000"/>
+            <rect x="151" y="523" width="79" height="36" rx="5" fill="#000"/>
+          </mask>
+          <mask id="weatherWindowMask" maskUnits="userSpaceOnUse" x="0" y="0" width="1448" height="1086">
+            <rect width="145" height="510" fill="url(#weatherWindowFade)"/>
+          </mask>
+        </defs>
+        <g mask="url(#weatherWallMask)">
+          <image class="weather-wall-image" href="assets/desk.png" width="1448" height="1086"/>
+          <rect class="weather-wall-tint" width="1448" height="1086"/>
+        </g>
+        <g mask="url(#weatherWindowMask)">
+          <image class="weather-window-image" href="assets/desk.png" width="1448" height="1086"/>
+          <rect class="weather-window-tint" width="145" height="510"/>
+          <g class="weather-stars">
+            <circle cx="72" cy="28" r="1"/><circle cx="101" cy="98" r="1.4"/><circle cx="82" cy="143" r="1"/>
+          </g>
+          <circle class="weather-moon" cx="96" cy="49" r="10"/>
+        </g>
+      </svg>
+      <div class="window-weather" aria-hidden="true">
+        <div class="weather-rain"></div><div class="weather-snow"></div><div class="weather-fog"></div>
+      </div>
+      <div class="lamp-glow" aria-hidden="true"></div>
+      <div class="lamp-dim" aria-hidden="true"></div>
+
+      <button class="lamp-hotspot" id="lampButton" type="button" aria-label="Lamp uitzetten" aria-pressed="false"></button>
+
+      <div class="monitor-ui" id="monitorUI" aria-hidden="true"></div>
+      <button class="monitor-center-hotspot" id="monitorCenterHotspot" type="button" aria-label="Open Enjoycleaningup"></button>
+      <button class="monitor-nav-hotspot projects" type="button" data-monitor-page="projecten" aria-label="Open Projecten"></button>
+      <button class="monitor-nav-hotspot about" type="button" data-monitor-page="over-mij" aria-label="Open Over mij"></button>
+      <button class="monitor-nav-hotspot contact" type="button" data-monitor-page="contact" aria-label="Open Contact"></button>
+
+      <a class="poster-link" href="https://portal.enjoycleaningup.com/" target="_blank" rel="noopener" aria-label="Open het Enjoycleaningup portal"></a>
+      <a class="tedx-link" href="https://youtu.be/Xn_BQswQlLE?si=tF5zFYlo5Iye_z68" target="_blank" rel="noopener" aria-label="Bekijk de TEDx-video"></a>
+      <div class="steam" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+      <a class="x17-link" href="https://enjoycleaningup.com/innovatie/x17" target="_blank" rel="noopener" aria-label="Bekijk X17"></a>
+      <svg class="x17-arm-cleaner" viewBox="0 0 1448 1086" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="woodPatch" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#d58a39"/><stop offset=".48" stop-color="#c8752f"/><stop offset="1" stop-color="#a95c29"/>
+          </linearGradient>
+          <filter id="softWood" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3.2"/></filter>
+        </defs>
+        <path d="M524 618 C536 632 534 650 522 666 C512 680 508 694 505 706 C495 700 484 695 472 688 C461 681 452 672 454 658 C458 646 470 638 482 632 C494 625 507 618 524 618 Z" fill="url(#woodPatch)" opacity=".92" filter="url(#softWood)"/>
+      </svg>
+      <img class="forearm-cutout" src="assets/desk.png" alt="" aria-hidden="true">
+
+      <a class="book-link book-hondtrouw" href="https://www.youtube.com/watch?v=nxOQkQLlTt4&t=5s" target="_blank" rel="noopener" aria-label="Bekijk de documentaire Hondstrouw op YouTube"></a>
+      <a class="book-link book-vrolike" href="https://www.bol.com/nl/nl/f/de-vrolikke-lab/9300000184692995/" target="_blank" rel="noopener" aria-label="Bekijk De Vrolikke Lab"></a>
+
+      <button class="about-hotspot" id="aboutButton" type="button" aria-label="Lees meer over Alex"></button>
+
+      <button class="docs-button" id="docsButton" type="button" aria-label="Open documenten" aria-expanded="false"></button>
+      <div class="paper-fan" id="paperFan" aria-hidden="true">
+        <article class="paper"><h3>CV</h3><p><strong>Adjunct Directeur ICT | Innovatie &amp; Digitalisering | Maatschappelijk ondernemer</strong></p><p>Ervaren ICT-manager en bestuurder met een sterke technische achtergrond in softwareontwikkeling, infrastructuur, data en informatiebeveiliging. Sinds 2009 actief binnen het <strong>Nederlands Woning Waarde Instituut (NWWI)</strong>, momenteel als <strong>Adjunct Directeur ICT en MT-lid</strong>. Verantwoordelijk voor ICT, softwareontwikkeling, data, innovatie, security en de verdere digitalisering van de organisatie.</p><p>Naast zijn werk bij het NWWI is Alex actief binnen <strong>Stichting Enjoycleaningup</strong>, een internationale beweging die mensen, bedrijven en jongeren op een positieve en innovatieve manier betrekt bij het terugdringen van zwerfafval. Binnen de stichting houdt hij zich onder andere bezig met technologie, robotica, AI, educatie en nieuwe concepten zoals de autonome opruimrobot <strong>X17</strong> en het Trash-lab.</p><p>Alex combineert technologie graag met maatschappelijke impact en is daarnaast actief als <strong>TEDx-spreker</strong> en <strong>Klimaatburgemeester van IJsselstein</strong>.</p><p><strong>Expertise</strong><br>ICT-strategie | Softwareontwikkeling | AI &amp; innovatie | Data | Cybersecurity | Digitale transformatie | Robotica | Leiderschap | Maatschappelijke innovatie</p></article>
+        <article class="paper"><h3>Cybersecurity &amp; Ethical Hacking</h3><p>Mijn achtergrond in ethical hacking stelt mij in staat om infrastructuur, applicaties en digitale processen vanuit een aanvallersperspectief te beoordelen. Daarbij richt ik mij op het identificeren van kwetsbaarheden, misconfiguraties en potentiële aanvalsvectoren voordat deze daadwerkelijk misbruikt kunnen worden. Mijn kennis ligt onder andere op het gebied van netwerkbeveiliging, webapplicaties, authenticatie, penetratietesten en security-by-design.</p></article>
+        <article class="paper"><h3>AI &amp; Agentic Development</h3><p>Ik verdiep mij actief in de ontwikkelingen rond artificial intelligence, large language models en agentic development. In een markt die zich uitzonderlijk snel ontwikkelt, probeer ik technische kennis continu actueel te houden en nieuwe mogelijkheden praktisch te toetsen. Mijn interesse ligt vooral bij AI-agents, automatisering, softwareontwikkeling met AI, tool-integraties en de manier waarop autonome systemen bestaande processen en ontwikkelteams kunnen versterken.</p></article>
+        <article class="paper"><h3>Memo - Hoe krijgen we hondeneigenaren in beweging en maken we ze onderdeel van onze beweging?</h3><p><strong>Aanleiding</strong></p><p>Nederland telt miljoenen honden en iedere hond gaat meerdere keren per dag naar buiten. Daarmee vormen hondeneigenaren misschien wel het grootste dagelijkse netwerk van mensen dat letterlijk op straat, in parken, bossen en buurten aanwezig is.</p><p>Voor Enjoycleaningup ligt hier een enorme kans. Niet door van iedere hondenbezitter een fanatieke afvalraper te maken, maar door een simpele gedachte normaal te maken:</p><p><strong>Als je toch buiten loopt, waarom zou je dan niet af en toe iets meenemen?</strong></p></article>
+        <button class="paper-close" id="closePapers" type="button">Sluiten</button>
+      </div>
+
+      <svg class="phone-weather" id="phoneWeather" viewBox="0 0 1448 1086" preserveAspectRatio="none" role="img" aria-label="Weer in IJsselstein wordt geladen">
+        <defs>
+          <linearGradient id="phoneWeatherBackground" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#24475e"/><stop offset="1" stop-color="#0c1b2a"/>
+          </linearGradient>
+          <symbol id="phoneIconSun" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="12"/><path d="M32 3V11M32 53V61M3 32H11M53 32H61M11 11L17 17M47 47L53 53M11 53L17 47M47 17L53 11"/>
+          </symbol>
+          <symbol id="phoneIconMoon" viewBox="0 0 64 64"><path d="M43 8A24 24 0 1 0 56 43A25 25 0 0 1 43 8Z"/></symbol>
+          <symbol id="phoneIconCloud" viewBox="0 0 64 64"><path d="M14 45A12 12 0 0 1 14 21A17 17 0 0 1 46 19A13 13 0 0 1 51 45Z"/></symbol>
+          <symbol id="phoneIconRain" viewBox="0 0 64 64"><path d="M14 35A10 10 0 0 1 14 15A16 16 0 0 1 44 14A11 11 0 0 1 51 35ZM20 44L16 54M34 44L30 54M48 44L44 54"/></symbol>
+          <symbol id="phoneIconSnow" viewBox="0 0 64 64"><path d="M32 5V59M9 18L55 46M9 46L55 18M25 10L32 17L39 10M25 54L32 47L39 54M10 26L20 25L19 15M45 49L44 39L54 38M10 38L20 39L19 49M45 15L44 25L54 26"/></symbol>
+          <symbol id="phoneIconFog" viewBox="0 0 64 64"><path d="M10 18H54M5 30H47M17 42H59M8 54H49"/></symbol>
+          <symbol id="phoneIconStorm" viewBox="0 0 64 64"><path d="M14 31A10 10 0 0 1 14 11A16 16 0 0 1 44 10A11 11 0 0 1 51 31M35 29L23 47H34L27 61L46 40H34Z"/></symbol>
+        </defs>
+        <foreignObject width="1448" height="1086">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="phone-weather-projection">
+            <svg xmlns="http://www.w3.org/2000/svg" width="152" height="300" viewBox="0 0 152 300" text-anchor="middle">
+              <rect width="152" height="300" rx="12" fill="url(#phoneWeatherBackground)"/>
+              <text x="76" y="42" class="phone-weather-location">IJsselstein</text>
+              <use id="phoneWeatherIcon" href="#phoneIconCloud" x="47" y="65" width="58" height="58" class="phone-weather-icon"/>
+              <text id="phoneWeatherTemperature" x="76" y="180" class="phone-weather-temperature">--</text>
+              <text id="phoneWeatherCondition" x="76" y="222" class="phone-weather-condition">Laden...</text>
+              <text id="phoneWeatherTime" x="76" y="257" class="phone-weather-time">Actueel weer</text>
+            </svg>
+          </div>
+        </foreignObject>
+      </svg>
+      <div class="keyboard-zone" id="keyboardZone" aria-hidden="true"></div>
+      <div class="sound-toast" id="soundToast">Toetsenbordgeluid actief</div>
+    </div>
+  </section>
+  <div class="weather-caption">
+    <span id="weatherStatus" role="status">Weer in IJsselstein wordt geladen.</span>
+    <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Weerdata: Open-Meteo (CC BY 4.0)</a>
+  </div>
+</main>
+
+<div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectTitle" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-head"><h2 id="projectTitle">Project</h2><button class="modal-close" id="projectClose" type="button" aria-label="Sluiten">×</button></div>
+    <div class="browser">
+      <div class="browser-bar"><span class="b-dot"></span><span class="b-dot"></span><span class="b-dot"></span><span class="address" id="projectUrl"></span><button class="project-nav-arrow" id="prevProject" type="button" aria-label="Vorige website">‹</button><button class="project-nav-arrow" id="nextProject" type="button" aria-label="Volgende website">›</button></div>
+      <div class="project-preview" id="projectPreview"><h3 id="projectHeadline"></h3><p id="projectText"></p></div>
+    </div>
+    <div class="modal-actions"><a class="primary" id="projectVisit" href="#" target="_blank" rel="noopener">Open website ↗</a><button id="projectClose2" type="button">Sluiten</button></div>
+  </div>
+</div>
+
+<div class="modal" id="aboutModal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-head"><h2 id="aboutTitle">Over Alex</h2><button class="modal-close" id="aboutClose" type="button" aria-label="Sluiten">×</button></div>
+    <div class="about-copy">
+      <p>Ik werk graag op het snijvlak van technologie, creativiteit en maatschappelijke impact. Van digitale producten en AI tot websites, robots en tastbare innovaties.</p>
+      <p>Veel van mijn projecten ontstaan vanuit één simpele vraag: kan dit slimmer, mooier of nuttiger? Deze interactieve werkplek is mijn digitale bureau — klik gerust rond.</p>
+    </div>
+    <div class="modal-actions"><button class="primary" id="aboutClose2" type="button">Sluiten</button></div>
+  </div>
+</div>
+
+<div class="modal" id="monitorNavModal" role="dialog" aria-modal="true" aria-labelledby="monitorNavTitle" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-head"><h2 id="monitorNavTitle">Pagina</h2><button class="modal-close" id="monitorNavClose" type="button" aria-label="Sluiten">×</button></div>
+    <div class="nav-screen" id="monitorNavContent"></div>
+    <div class="modal-actions"><button class="primary" id="monitorNavClose2" type="button">Sluiten</button></div>
+  </div>
+</div>
+
+<div id="teletext" aria-label="Teletekstversie van de site van Alex van Eck">
+  <div class="tt-screen">
+    <div class="tt-head"><label class="tt-pn">P<input id="ttInput" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" value="100" aria-label="Paginanummer" autocomplete="off"></label><span>ALEXVANECK</span><span id="ttClock"></span></div>
+    <main class="tt-body" id="ttBody"></main>
+    <div class="tt-foot"><a href="?desk">Volledige bureau-versie</a></div>
+    <nav class="tt-fast" aria-label="Snelle navigatie"><a href="#p100">Index</a><a href="#p101">Over mij</a><a href="#p102">Projecten</a><a href="#p105">Contact</a></nav>
+  </div>
+</div>
+
+<script>
+(() => {
+  const stage = document.getElementById('stage');
+  if (new URLSearchParams(window.location.search).has('debug')) {
+    stage.classList.add('debug-layout');
+  }
+  const projects = [
+    {title:'Palme Club',url:'https://www.palmeclub.nl/',text:'Training, community en ontspanning in één moderne digitale ervaring.',theme:'linear-gradient(135deg,#d1ac5c 0 32%,#242723 32% 64%,#efe9de 64%)',preview:'assets/site-palmeclub.png'},
+    {title:'Geenmerk.nl',url:'https://geenmerk.nl/',text:'Een visuele website over duurzame kleding, keuzes en de impact van mode.',theme:'linear-gradient(135deg,#eeeae1 0 29%,#526450 29% 68%,#d6c7aa 68%)',preview:'assets/site-geenmerk.png'},
+    {title:'MiniCity.store',url:'https://minicity.store/',text:'Een compacte commerciële website met focus op productbeleving en vindbaarheid.',theme:'linear-gradient(135deg,#232323 0 32%,#c7a353 32% 62%,#f1ece4 62%)',preview:'assets/site-mini.png'},
+    {title:'Enjoycleaningup',url:'https://enjoycleaningup.com/',text:'Een wereldwijde beweging waarin technologie, creativiteit, honden en positieve actie samenkomen voor een schonere wereld. Vanuit deze projecten ontstaan onder andere X17, educatie, clean-ups en nieuwe manieren om mensen in beweging te krijgen.',theme:'linear-gradient(135deg,#f2b81b 0 40%,#f4eee5 40% 68%,#323a34 68%)',preview:'assets/enjoycleaningup-preview.png'},
+    {title:'NWWI',url:'https://nwwi.nl/',text:'Een professionele website voor woningwaarderingen en taxatierapporten.',theme:'linear-gradient(135deg,#173f67 0 42%,#e4eef4 42% 70%,#56a9bc 70%)',preview:'assets/website-nwwi.jpg'},
+    {title:'Taxatieweb',url:'https://taxatieweb.nl/',text:'Een digitaal platform voor taxaties en vastgoedprofessionals.',theme:'linear-gradient(135deg,#f5f0e6 0 35%,#235770 35% 69%,#e9a74a 69%)',preview:'assets/site-taxatieweb.png'},
+    {title:'Cliniclowns Suriname',url:'https://www.cliniclowns.nl/',text:'Dit was Cliniclowns Suriname.',theme:'linear-gradient(135deg,#f45d6e 0 37%,#f5cd4b 37% 67%,#266e93 67%)',preview:'assets/site-cliniclowns.png'},
+    {title:'Nexttrade',url:null,text:'Een besloten portal dat wij hebben gemaakt. Niet publiek toegankelijk; daarom tonen we hier alleen een impressie, zonder externe link.',preview:'assets/site-Nexttrade.png'},
+    {title:'AmsterdamExcursies — Vorige versie',url:'https://www.amsterdamexcursies.nl/',text:'Wij hebben een vorige versie van de website van AmsterdamExcursies gemaakt. De afbeelding toont die eerdere versie, niet de huidige website. De link verwijst naar de huidige website.',visitLabel:'Bekijk huidige website ↗',preview:'assets/site-amsterdamexcursies.png',hidePreviewTitle:true}
+  ];
+  const featuredProjectIndex = 3; // middle website shown in the artwork
+  let selectedProjectIndex = featuredProjectIndex;
+
+  const monitorCenterHotspot = document.getElementById('monitorCenterHotspot');
+  function changeProject(direction){
+    selectedProjectIndex=(selectedProjectIndex+direction+projects.length)%projects.length;
+    monitorCenterHotspot.setAttribute('aria-label',`Open ${projects[selectedProjectIndex].title}`);
+    openProject(selectedProjectIndex,false);
+  }
+  monitorCenterHotspot.addEventListener('click',()=>openProject(selectedProjectIndex));
+  document.getElementById('prevProject').addEventListener('click',()=>changeProject(-1));
+  document.getElementById('nextProject').addEventListener('click',()=>changeProject(1));
+
+  const monitorNavModal=document.getElementById('monitorNavModal');
+  const monitorNavTitle=document.getElementById('monitorNavTitle');
+  const monitorNavContent=document.getElementById('monitorNavContent');
+  const monitorPages={
+    'projecten':{title:'Projecten',intro:'Een selectie van projecten, innovaties en nieuwe ideeën.',cards:[
+      {title:'X17',text:'Naast techniek ook de juridische uitdagingen: hoe krijgen we deze op de openbare weg?'},
+      {title:'Pixar',text:'Hoe maken we er een beleving van in ons Labra-torium.'},
+      {title:'AI/Websites',text:'Bouw van verschillende websites maar ook (AI)agents.'}
+    ]},
+    'over-mij':{title:'Over mij',intro:'Techneut met een missie: ik bouw graag dingen die slimmer, mooier of nuttiger zijn, en het liefst met impact op de wereld om ons heen.',cards:[
+      {title:'Mijn verhaal',text:'Ik ben begonnen als softwareontwikkelaar en werk sinds 2009 bij het Nederlands Woning Waarde Instituut, waar ik nu Adjunct Directeur ICT en MT-lid ben. Daar werk ik aan ICT, data, security en digitalisering. Naast mijn werk ben ik bezig met een schonere wereld, onder andere bij Stichting Enjoycleaningup.'},
+      {title:'Waar ik aan werk',text:'<strong>X17:</strong> een autonome opruimrobot. Naast de techniek zijn er ook juridische uitdagingen om hem op de openbare weg te krijgen.<br><strong>Trash-lab / Labra-torium:</strong> techniek, educatie en beleving.<br><strong>AI en websites:</strong> verschillende websites en (AI)agents.<br><strong>Enjoycleaningup:</strong> clean-ups met mensen, bedrijven en jongeren.'},
+      {title:'Waar ik voor sta',text:'Technologie moet iets goeds doen voor mensen en de omgeving. Zwerfafval verdwijnt het best met positieve energie, slimme innovatie en samenwerking, niet met een opgeheven vingertje. Daarom combineer ik techniek met creativiteit en een flinke portie humor.<br><br>Daarnaast: TEDx-spreker en Klimaatburgemeester van IJsselstein.'}
+    ]},
+    'contact':{title:'Contact',intro:'Vind Alex en Enjoycleaningup op social media.',links:[
+      {label:'LinkedIn',url:'https://www.linkedin.com/in/alexvaneck'},
+      {label:'Instagram',url:'https://www.instagram.com/alexveck'},
+      {label:'Instagram Enjoycleaningup',url:'https://www.instagram.com/enjoycleaningup/'}
+    ]}
+  };
+  function openMonitorPage(key){
+    const page=monitorPages[key]; if(!page)return;
+    monitorNavTitle.textContent=page.title;
+    const slots=page.links
+      ?page.links.map(link=>`<div class="content-slot"><a href="${link.url}" target="_blank" rel="noopener">${link.label}</a></div>`).join('')
+      :page.cards
+        ?page.cards.map(c=>`<div class="content-slot"><strong style="display:block;font-size:17px;color:#201a14;margin-bottom:6px">${c.title}</strong>${c.text}</div>`).join('')
+        :page.slots.map(slot=>`<div class="content-slot">${slot}<br><small>Hier kun je later content invullen.</small></div>`).join('');
+    const label=page.links?'Social links':page.cards?'Selectie':'Content volgt';
+    monitorNavContent.innerHTML=`<span class="placeholder-label">${label}</span><h3>${page.title}</h3><p>${page.intro}</p><div class="content-slots">${slots}</div>`;
+    monitorNavModal.classList.add('open');monitorNavModal.setAttribute('aria-hidden','false');document.getElementById('monitorNavClose').focus();
+  }
+  function closeMonitorPage(){monitorNavModal.classList.remove('open');monitorNavModal.setAttribute('aria-hidden','true')}
+  document.querySelectorAll('[data-monitor-page]').forEach(btn=>btn.addEventListener('click',()=>openMonitorPage(btn.dataset.monitorPage)));
+  document.getElementById('monitorNavClose').addEventListener('click',closeMonitorPage);
+  document.getElementById('monitorNavClose2').addEventListener('click',closeMonitorPage);
+  monitorNavModal.addEventListener('click',e=>{if(e.target===monitorNavModal)closeMonitorPage()});
+
+  const projectModal = document.getElementById('projectModal');
+  function openProject(i,focusClose=true){
+    const p=projects[i];
+    document.getElementById('projectTitle').textContent=p.title;
+    document.getElementById('projectHeadline').textContent=p.title;
+    document.getElementById('projectHeadline').style.display=p.hidePreviewTitle?'none':'';
+    document.getElementById('projectText').textContent=p.text;
+    document.getElementById('projectUrl').textContent=p.url || 'Besloten portal — geen publieke URL';
+    const visit=document.getElementById('projectVisit');
+    visit.style.display=p.url?'':'none';
+    visit.textContent=p.visitLabel || 'Open website ↗';
+    if(p.url){visit.href=p.url}
+    else{visit.removeAttribute('href')}
+    document.getElementById('projectPreview').style.background=p.preview?`linear-gradient(0deg,rgba(5,9,11,.82),rgba(5,9,11,.08) 70%),url("${p.preview}") center/cover no-repeat`:p.theme;
+    projectModal.classList.add('open');projectModal.setAttribute('aria-hidden','false');if(focusClose)document.getElementById('projectClose').focus();
+  }
+  function closeProject(){projectModal.classList.remove('open');projectModal.setAttribute('aria-hidden','true')}
+  document.getElementById('projectClose').addEventListener('click',closeProject);
+  document.getElementById('projectClose2').addEventListener('click',closeProject);
+  projectModal.addEventListener('click',e=>{if(e.target===projectModal)closeProject()});
+
+  const aboutModal=document.getElementById('aboutModal');
+  function openAbout(){aboutModal.classList.add('open');aboutModal.setAttribute('aria-hidden','false');document.getElementById('aboutClose').focus()}
+  function closeAbout(){aboutModal.classList.remove('open');aboutModal.setAttribute('aria-hidden','true')}
+  document.getElementById('aboutButton').addEventListener('click',openAbout);
+  document.getElementById('aboutClose').addEventListener('click',closeAbout);
+  document.getElementById('aboutClose2').addEventListener('click',closeAbout);
+  aboutModal.addEventListener('click',e=>{if(e.target===aboutModal)closeAbout()});
+
+  const lampButton=document.getElementById('lampButton');
+  lampButton.addEventListener('click',()=>{
+    const off=stage.classList.toggle('lamp-off');
+    lampButton.setAttribute('aria-pressed',String(off));
+    lampButton.setAttribute('aria-label',off?'Lamp aanzetten':'Lamp uitzetten');
+  });
+
+  const docsButton=document.getElementById('docsButton');
+  const paperFan=document.getElementById('paperFan');
+  function setPapers(open){paperFan.classList.toggle('open',open);paperFan.setAttribute('aria-hidden',String(!open));docsButton.setAttribute('aria-expanded',String(open))}
+  docsButton.addEventListener('click',()=>setPapers(!paperFan.classList.contains('open')));
+  document.getElementById('closePapers').addEventListener('click',()=>setPapers(false));
+
+  /* keyboard hover sound: browsers require one user interaction first */
+  const keyboard=document.getElementById('keyboardZone');
+  for(let i=0;i<56;i++){const key=document.createElement('button');key.type='button';key.className='key-hit';key.tabIndex=-1;key.setAttribute('aria-hidden','true');keyboard.appendChild(key)}
+  let audioCtx=null, unlocked=false, lastTone=0;
+  const toast=document.getElementById('soundToast');
+  async function unlock(){
+    try{
+      audioCtx ||= new (window.AudioContext||window.webkitAudioContext)();
+      if(audioCtx.state==='suspended') await audioCtx.resume();
+      unlocked=audioCtx.state==='running';
+      if(unlocked){toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1600)}
+    }catch(e){}
+  }
+  document.addEventListener('pointerdown',unlock,{once:true});
+  function keySound(i){
+    if(!unlocked||!audioCtx)return;
+    const now=audioCtx.currentTime;if(now-lastTone<.035)return;lastTone=now;
+    const osc=audioCtx.createOscillator(), gain=audioCtx.createGain();
+    osc.type='triangle';osc.frequency.value=145+(i%11)*7;
+    gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(.020,now+.003);gain.gain.exponentialRampToValueAtTime(.0001,now+.043);
+    osc.connect(gain);gain.connect(audioCtx.destination);osc.start(now);osc.stop(now+.05);
+  }
+  [...keyboard.children].forEach((k,i)=>{
+    let pressTimer=null;
+    const press=()=>{
+      keySound(i);
+      k.classList.remove('key-press');
+      void k.offsetWidth;
+      k.classList.add('key-press');
+      clearTimeout(pressTimer);
+      pressTimer=setTimeout(()=>k.classList.remove('key-press'),95);
+    };
+    k.addEventListener('pointerenter',press);
+    k.addEventListener('pointerdown',press);
+  });
+
+
+  /* teletext version */
+  const teletext=document.getElementById('teletext');
+  const ttBody=document.getElementById('ttBody');
+  const ttInput=document.getElementById('ttInput');
+  const ttClock=document.getElementById('ttClock');
+  const ttParams=new URLSearchParams(location.search);
+  const ttNarrow=window.matchMedia('(max-width:760px)');
+  const ttWanted=()=>ttParams.has('teletext')||(ttNarrow.matches&&!ttParams.has('desk'));
+  const plain=html=>html.replace(/<br\s*\/?>/g,'\n').replace(/<[^>]+>/g,'');
+  const ttPage=k=>monitorPages[k];
+  const ttColors=['#f00','#0f0','#ff0','#0ff','#f0f'];
+  const ttRow=(cls,text,parent)=>{const d=document.createElement('span');d.className=cls;d.textContent=text;parent.appendChild(d);return d};
+  const ttInternal=(n,label,parent)=>{const a=document.createElement('a');a.className='tt-l';a.href='#p'+n;const b=document.createElement('b');b.textContent=n;const t=document.createElement('span');t.textContent=label;a.append(b,t);parent.appendChild(a)};
+  const ttExternal=(url,label,parent)=>{const a=document.createElement('a');a.className='tt-x';a.href=url;a.target='_blank';a.rel='noopener';a.textContent='> '+label;parent.appendChild(a)};
+  const ttTitle=(text,parent)=>{const d=document.createElement('span');d.className='tt-title';[...text].forEach((ch,i)=>{const c=document.createElement('span');c.textContent=ch;c.style.color=ttColors[i%ttColors.length];d.appendChild(c)});parent.appendChild(d)};
+  const ttPages={
+    100:b=>{
+      ttTitle('Alex van Eck',b);
+      ttRow('tt-t',ttPage('over-mij').intro,b);ttRow('tt-sp','',b);
+      ttRow('tt-h','Menu',b);
+      ttInternal(101,'Over mij',b);ttInternal(102,'Projecten',b);ttInternal(103,'Websites',b);ttInternal(104,'X17 robot',b);ttInternal(105,'Contact',b);
+      ttRow('tt-sp','',b);ttRow('tt-t','Tik op een paginanummer of typ het nummer linksboven.',b);
+    },
+    101:b=>{
+      const p=ttPage('over-mij');ttTitle(p.title,b);ttRow('tt-t',p.intro,b);
+      p.cards.forEach(c=>{ttRow('tt-h',c.title,b);ttRow('tt-t',plain(c.text),b)});
+    },
+    102:b=>{
+      const p=ttPage('projecten');ttTitle(p.title,b);ttRow('tt-t',p.intro,b);
+      const to={'X17':[104,'Lees verder'],'AI/Websites':[103,'Bekijk de websites']};
+      p.cards.forEach(c=>{ttRow('tt-h',c.title,b);ttRow('tt-t',plain(c.text),b);if(to[c.title])ttInternal(to[c.title][0],to[c.title][1],b)});
+    },
+    103:b=>{
+      ttTitle('Websites',b);ttRow('tt-t','Een selectie van websites die ik heb gebouwd of waar ik aan meewerk.',b);
+      projects.forEach(pr=>{ttRow('tt-h',pr.title,b);ttRow('tt-t',pr.text,b);if(pr.url)ttExternal(pr.url,pr.visitLabel || pr.url.replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,''),b)});
+    },
+    104:b=>{
+      ttTitle('X17',b);
+      ttRow('tt-t','Een autonome opruimrobot van Stichting Enjoycleaningup.',b);ttRow('tt-sp','',b);
+      ttRow('tt-t',plain(ttPage('projecten').cards[0].text),b);ttRow('tt-sp','',b);
+      ttExternal('https://enjoycleaningup.com/innovatie/x17','Bekijk X17 online',b);
+    },
+    105:b=>{
+      const p=ttPage('contact');ttTitle(p.title,b);ttRow('tt-t',p.intro,b);ttRow('tt-sp','',b);
+      p.links.forEach(l=>ttExternal(l.url,l.label,b));
+    }
+  };
+  function ttRender(){
+    const n=parseInt((location.hash.match(/^#p(\d{3})$/)||[])[1]||'100',10);
+    ttBody.replaceChildren();
+    if(ttPages[n]){ttPages[n](ttBody)}
+    else{ttTitle('Pagina '+n,ttBody);ttRow('tt-t','Deze pagina bestaat niet.',ttBody);ttRow('tt-sp','',ttBody);ttInternal(100,'Terug naar de index',ttBody)}
+    ttInput.value=String(n);document.title='alexvaneck';window.scrollTo(0,0);
+  }
+  function ttTick(){const d=new Date();ttClock.textContent=d.toLocaleDateString('nl-NL',{weekday:'short',day:'2-digit',month:'short'}).replace(/\./g,'')+' '+d.toLocaleTimeString('nl-NL',{hour:'2-digit',minute:'2-digit',second:'2-digit'})}
+  function ttApply(){document.documentElement.classList.toggle('tt-mode',ttWanted())}
+  ttInput.addEventListener('focus',()=>ttInput.select());
+  ttInput.addEventListener('input',()=>{ttInput.value=ttInput.value.replace(/\D/g,'');if(ttInput.value.length===3){location.hash='p'+ttInput.value;ttInput.blur()}});
+  window.addEventListener('hashchange',ttRender);
+  ttNarrow.addEventListener('change',ttApply);
+  ttApply();ttRender();ttTick();setInterval(ttTick,1000);
+
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeProject();closeAbout();closeMonitorPage();setPapers(false)}});
+})();
+</script>
+</body>
+</html>
