@@ -16,6 +16,21 @@ to keep its cookies separate from the homepage. If browser storage fails,
 the notice reports this and the choice only applies to the current visit.
 Run consent tests: node --test tests/idmb-consent.test.cjs
 
+IDMB projects:
+- All project cards link to internal pages under /idmb/projecten/.
+- Centric / Zuiderpark, Hoge Biezen, KNIK Houten and Nieuwe ontwikkeling
+  each have their own URL, title and canonical link.
+- Run npm run build:idmb after changing the IDMB homepage layout, footer,
+  cookie notice or project data in scripts/build-idmb-projects.cjs.
+  The generator shares the homepage shell and one project layout across
+  all four static pages; do not edit generated project HTML directly.
+- The pages share the IDMB cookie choice and include project facts, images,
+  contact and links to all other projects. Original external project links
+  remain supplementary links on the detail pages. Missing facts are labelled
+  as details to follow; no extra project specifications are assumed.
+- Publish generated project pages before idmb/index.html so new links work.
+- Run project tests: node --test tests/idmb-projects.test.cjs
+
 Interactions:
 - Lamp: click the lamp shade to toggle the lower light glow.
 - Monitor: carousel of websites with left/right arrows; click a card for a modal and live URL.

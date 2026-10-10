@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nieuwe ontwikkeling — IDMB RE B.V.</title>
+  <meta name="description" content="Ruimte voor een volgend project. IDMB RE B.V." />
+  <style>
+    :root{--ink:#102b29;--muted:#667472;--sand:#f6f2ea;--gold:#b28b45;--line:#dde3df;--white:#fff;--max:1280px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff} a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
+    .wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(16,43,41,.08)}
+    .nav{height:86px;display:flex;align-items:center;justify-content:flex-end;gap:30px}.menu{display:flex;align-items:center;gap:30px;font-size:14px}.menu a{position:relative}.menu a:not(.btn):after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:1px;background:var(--ink);transition:.25s}.menu a:hover:after{width:100%}.btn{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:white;padding:14px 20px;font-weight:700;font-size:13px;letter-spacing:.01em}.btn.light{background:#fff;color:var(--ink);border:1px solid rgba(255,255,255,.6)}.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+    .hero{padding:22px 0 92px}.hero-card{position:relative;min-height:650px;overflow:hidden;background:#ddd}.hero-card>img,.hero-card>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,37,35,.84) 0%,rgba(9,37,35,.55) 38%,rgba(9,37,35,.08) 72%)}.hero-content{position:relative;z-index:2;color:white;padding:76px 64px;max-width:720px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.26em;font-weight:800}.hero h1{font-size:clamp(54px,6vw,92px);line-height:.92;margin:24px 0 26px;letter-spacing:-.045em;font-weight:560}.hero p{font-size:20px;line-height:1.55;max-width:610px;color:rgba(255,255,255,.9)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}.hero-tag{position:absolute;z-index:3;right:0;bottom:0;background:white;padding:20px 28px;min-width:320px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700}
+    section{padding:100px 0}.intro{display:grid;grid-template-columns:1fr 1.1fr;gap:120px;align-items:start}.intro h2,.section-head h2{font-size:clamp(42px,5vw,70px);line-height:1.02;letter-spacing:-.04em;margin:12px 0}.intro-copy{font-size:21px;line-height:1.65;color:#475956;padding-top:40px}.text-link{display:inline-flex;margin-top:20px;font-weight:800;border-bottom:1px solid var(--ink);padding-bottom:5px}
+    .disciplines{background:var(--sand)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:50px;margin-bottom:42px}.section-head p{max-width:560px;color:#5d6b69;line-height:1.7}.cards4{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #cfd5d1}.discipline{padding:34px 26px 10px 0;min-height:220px;border-right:1px solid #cfd5d1}.discipline:last-child{border-right:0}.num{font-size:12px;color:#7d8987}.discipline h3{font-size:24px;margin:55px 0 12px}.discipline p{color:#61706d;line-height:1.55;font-size:14px}
+    .projects .section-head{margin-bottom:36px}.project-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:20px}.project-main{position:relative;height:610px;overflow:hidden}.project-main img,.project-card img{width:100%;height:100%;object-fit:cover}.project-main .overlay{position:absolute;left:0;right:0;bottom:0;padding:34px;background:linear-gradient(0deg,rgba(7,29,27,.8),transparent);color:#fff}.overlay h3{font-size:36px;margin:8px 0}.project-side{display:grid;grid-template-rows:1fr 1fr;gap:20px}.project-card{position:relative;min-height:295px;overflow:hidden;background:#eee}.project-card .mini{position:absolute;left:18px;bottom:18px;background:white;padding:16px 18px;min-width:220px}.mini strong{display:block;font-size:18px}.mini span{font-size:12px;color:#64716f}.project-list{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:22px}.project-list .item{border:1px solid var(--line);padding:12px}.project-list img{height:245px;object-fit:cover;width:100%}.project-list h4{font-size:21px;margin:16px 4px 6px}.project-list p{margin:0 4px 12px;color:#687673;font-size:13px}
+    .statement{background:var(--ink);color:#fff}.statement .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:100px;align-items:center}.statement h2{font-size:clamp(48px,5vw,76px);line-height:1;letter-spacing:-.04em;margin:15px 0}.statement p{font-size:18px;line-height:1.8;color:#d6dedc}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.18)}.stat{background:var(--ink);padding:28px}.stat strong{display:block;font-size:38px}.stat span{font-size:13px;color:#c7d1cf}
+    .partners{text-align:center}.partners h2{font-size:40px;margin:8px 0 10px}.partners p{color:#687673}.logo-row{display:grid;grid-template-columns:repeat(5,1fr);align-items:center;gap:28px;margin-top:48px}.logo-cell{height:120px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:24px;background:white}.logo-cell img{max-height:66px;max-width:100%;object-fit:contain}
+    .cta{padding-top:40px}.cta-box{background:var(--sand);padding:76px;display:flex;justify-content:space-between;gap:50px;align-items:center}.cta-box h2{font-size:48px;line-height:1.03;letter-spacing:-.03em;margin:0;max-width:700px}.cta-box p{color:#65726f;max-width:470px;line-height:1.7}
+    footer{margin-top:90px;background:#071b1a;color:white;padding:54px 0 28px}.foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px}.foot h4{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:#9eb0ac}.foot p,.foot a{color:#d9e0de;line-height:1.8;font-size:14px}.credit{border-top:1px solid rgba(255,255,255,.12);margin-top:38px;padding-top:25px;display:flex;justify-content:space-between;align-items:center;color:#96aaa6;font-size:12px}.credit .alexvaneck{display:inline-block;color:#fff;font-size:28px;font-weight:700;letter-spacing:-.04em;white-space:nowrap}.alexvaneck span{color:#f58220}
+    .mobile{display:none}.note{font-size:11px;color:#8a9693;margin-top:14px}
+    .project-main:focus-visible,.project-card:focus-visible,.project-list .item:focus-visible{outline:3px solid var(--gold);outline-offset:4px}.project-list a.item:hover{border-color:var(--gold)}
+    .cookie-settings{display:block;margin-top:14px;padding:0;border:0;background:none;color:#d9e0de;font:inherit;font-size:13px;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+    .cookie-notice{position:fixed;right:24px;bottom:24px;z-index:100;width:min(480px,calc(100% - 48px));max-height:calc(100dvh - 48px);overflow:auto;padding:30px;background:var(--sand);border:1px solid #d8d2c6;border-top:3px solid var(--gold);box-shadow:0 16px 60px rgba(7,27,26,.22)}
+    .cookie-notice[hidden]{display:none}.cookie-notice .eyebrow{color:#725924}.cookie-notice h2{font-size:30px;line-height:1.1;letter-spacing:-.03em;margin:14px 0}.cookie-notice p{font-size:14px;line-height:1.7;color:#475956;margin:0 0 12px}.cookie-notice a{text-decoration:underline;text-underline-offset:3px}
+    .cookie-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.cookie-actions .btn{justify-content:center;border:1px solid var(--ink);font-family:inherit;cursor:pointer}.cookie-notice .cookie-status{margin:14px 0 0;font-size:12px}.cookie-status:empty{display:none}
+    .cookie-settings:focus-visible,.cookie-notice a:focus-visible,.cookie-actions button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+    @media(max-width:580px){.cookie-notice{right:14px;bottom:14px;width:calc(100% - 28px);max-height:calc(100dvh - 28px);padding:24px}.cookie-actions{grid-template-columns:1fr}}
+    @media(max-width:900px){.wrap{width:min(100% - 28px,var(--max))}.menu{display:none}.mobile{display:block}.hero-card{min-height:600px}.hero-content{padding:60px 28px}.hero-tag{min-width:auto;width:100%;position:absolute}.intro,.statement .wrap{grid-template-columns:1fr;gap:25px}.intro-copy{padding-top:0}.cards4{grid-template-columns:1fr 1fr}.project-grid{grid-template-columns:1fr}.project-side{grid-template-columns:1fr 1fr;grid-template-rows:none}.project-list{grid-template-columns:1fr}.logo-row{grid-template-columns:1fr 1fr}.cta-box{padding:42px 28px;display:block}.foot{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:20px}.hero h1{font-size:58px}}
+    @media(max-width:580px){.cards4,.project-side,.logo-row{grid-template-columns:1fr}.hero-card{min-height:620px}.hero h1{font-size:50px}.hero p{font-size:17px}.hero-tag{font-size:12px}.project-main{height:500px}.cta-box h2{font-size:38px}.credit{display:block}.credit .alexvaneck{margin-top:20px}}
+  </style>
+<link rel="canonical" href="https://alexvaneck.nl/idmb/projecten/nieuwe-ontwikkeling/" />
+  <style>
+    .project-nav{justify-content:space-between}.project-home{font-size:14px;font-weight:700}
+    .project-hero{padding-bottom:40px}.project-hero .hero-card{min-height:540px}.project-hero h1{overflow-wrap:anywhere}
+    .project-breadcrumb{padding:26px 0;font-size:13px;color:var(--muted)}.project-breadcrumb a{text-decoration:underline;text-underline-offset:4px}
+    .project-information{padding-top:50px}.project-facts{margin-top:30px;border-top:1px solid var(--line)}.project-facts div{padding:16px 0;border-bottom:1px solid var(--line)}.project-facts dt{font-size:12px;color:var(--muted);margin-bottom:6px}.project-facts dd{margin:0;font-size:17px}
+    .project-gallery{background:var(--sand)}.project-images{display:grid;grid-template-columns:1fr 1fr;gap:24px}.project-images figure{margin:0}.project-images img{width:100%;height:380px;object-fit:cover}.project-images figcaption{margin-top:12px;font-size:13px;color:var(--muted)}
+    .project-home:focus-visible,.project-breadcrumb a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+    @media(max-width:900px){.project-hero .hero-card{min-height:480px}.project-hero .hero-content{padding:48px 28px}}
+    @media(max-width:580px){.project-images{grid-template-columns:1fr}.project-images img{height:280px}.project-hero h1{font-size:42px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav project-nav">
+    <a class="project-home" href="/idmb/">IDMB RE B.V.</a><nav class="menu">
+      <a href="/idmb/#over">Over ons</a><a href="/idmb/#projecten">Projecten</a><a href="/idmb/#disciplines">Disciplines</a><a href="/idmb/#partners">Partners</a><a href="/idmb/#contact">Contact</a>
+      <a class="btn" href="/idmb/#contact">Neem contact op <span>↗</span></a>
+    </nav>
+    <a class="mobile project-home" href="/idmb/#projecten">Alle projecten</a>
+  </div>
+</header>
+<main id="top">
+  <nav class="wrap project-breadcrumb" aria-label="Broodkruimel"><a href="/idmb/">Home</a> / <a href="/idmb/#projecten">Projecten</a> / <span aria-current="page">Nieuwe ontwikkeling</span></nav>
+  <section class="hero project-hero"><div class="wrap"><div class="hero-card">
+    <img src="/idmb/assets/overzicht.jpg" alt="Nieuwe ontwikkeling">
+    <div class="hero-content"><div class="eyebrow">Details volgen / Ontwikkeling</div><h1>Nieuwe ontwikkeling</h1><p>Ruimte voor een volgend project.</p><div class="actions"><a class="btn light" href="#projectinformatie">Over dit project</a><a class="btn light" href="#contact">Neem contact op ↗</a></div></div>
+  </div></div></section>
+  <section class="project-information" id="projectinformatie"><div class="wrap intro">
+    <div><div class="eyebrow">Het project</div><h2>Nieuwe ontwikkeling</h2><dl class="project-facts"><div><dt>Locatie</dt><dd>Details volgen</dd></div><div><dt>Discipline</dt><dd>Ontwikkeling</dd></div><div><dt>Status</dt><dd>Details volgen</dd></div></dl></div>
+    <div class="intro-copy"><p>Deze pagina is gereserveerd voor een nieuwe ontwikkeling. De projectnaam, locatie, planning en verdere inhoud worden later aangevuld. De beelden zijn overgenomen uit het bestaande conceptoverzicht.</p><p class="note">Conceptinformatie op basis van het bestaande projectoverzicht. Verdere projectdetails volgen.</p></div>
+  </div></section>
+  <section class="project-gallery"><div class="wrap"><div class="section-head"><div><div class="eyebrow">In beeld</div><h2>Een blik op het project.</h2></div><p>Beelden uit het bestaande conceptoverzicht.</p></div><div class="project-images">
+    <figure><img src="/idmb/assets/overzicht.jpg" alt="Nieuwe ontwikkeling — projectbeeld 1" loading="lazy"><figcaption>Nieuwe ontwikkeling · Projectbeeld 1</figcaption></figure>
+    <figure><img src="/idmb/assets/overzicht2.jpg" alt="Nieuwe ontwikkeling — projectbeeld 2" loading="lazy"><figcaption>Nieuwe ontwikkeling · Projectbeeld 2</figcaption></figure>
+  </div></div></section>
+  <section class="cta" id="contact"><div class="wrap"><div class="cta-box"><div><div class="eyebrow">Kennismaken?</div><h2>Een kans, locatie of project bespreken?</h2></div><div><p>We komen graag in contact met grondeigenaren, ontwikkelaars, investeerders en andere partijen die kansen zien in vastgoed.</p><a href="mailto:info@speebeheer.nl" class="btn">Neem contact op ↗</a></div></div></div></section>
+  <section class="projects" id="andere-projecten"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Verder ontdekken</div><h2>Andere projecten.</h2></div><a class="text-link" href="/idmb/#projecten">Alle projecten ↗</a></div><div class="project-list">
+        <a class="item" href="../centric-zuiderpark/"><img src="/idmb/assets/centric-01.jpg" alt="Centric / Zuiderpark" loading="lazy"><h4>Centric / Zuiderpark</h4><p>Wonen / transformatie · In verkoop ↗</p></a>
+        <a class="item" href="../hoge-biezen/"><img src="/idmb/assets/omgeving.jpg" alt="Hoge Biezen" loading="lazy"><h4>Hoge Biezen</h4><p>Ontwikkeling · In voorbereiding ↗</p></a>
+        <a class="item" href="../knik-houten/"><img src="/idmb/assets/overzicht2.jpg" alt="KNIK Houten" loading="lazy"><h4>KNIK Houten</h4><p>Samenwerking / ontwikkeling · Details volgen ↗</p></a>
+  </div></div></section>
+</main>
+<footer><div class="wrap"><div class="foot"><div><h4>IDMB RE B.V.</h4><p>Vastgoed & ontwikkeling<br>Conceptwebsite</p><button class="cookie-settings" type="button" aria-controls="cookie-notice" aria-expanded="false">Cookie-instellingen</button></div><div><h4>Navigatie</h4><p><a href="/idmb/#over">Over ons</a><br><a href="/idmb/#projecten">Projecten</a><br><a href="/idmb/#disciplines">Disciplines</a><br><a href="/idmb/#partners">Partners</a></p></div><div><h4>Contact</h4><p><a href="mailto:info@speebeheer.nl">info@speebeheer.nl</a><br>Contactgegevens kunnen in definitieve versie worden aangevuld.</p></div></div><div class="credit"><span>© 2026 IDMB RE B.V. · Eerste visueel concept</span><a class="alexvaneck" href="https://alexvaneck.nl/"><span>alex</span>vaneck</a></div></div></footer>
+<aside class="cookie-notice" id="cookie-notice" role="region" aria-labelledby="cookie-title" hidden>
+  <div class="eyebrow">Uw privacy, uw keuze</div>
+  <h2 id="cookie-title" tabindex="-1">Een zorgvuldig bezoek.</h2>
+  <p>Met uw toestemming gebruiken we Google Analytics om te zien hoe deze website wordt gebruikt en deze te verbeteren. Hiervoor worden analytische cookies geplaatst en gebruiksgegevens met Google gedeeld. Zonder toestemming laden we Google Analytics niet.</p>
+  <p>We onthouden uw keuze zes maanden op dit apparaat. U kunt deze altijd aanpassen via Cookie-instellingen onderaan de pagina. <a href="https://policies.google.com/privacy?hl=nl" target="_blank" rel="noopener noreferrer">Meer over privacy bij Google</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn ghost" id="cookie-reject" type="button">Weigeren</button>
+    <button class="btn" id="cookie-accept" type="button">Accepteren</button>
+  </div>
+  <p class="cookie-status" id="cookie-status" role="status"></p>
+</aside>
+<script id="google-consent">
+  (() => {
+    const measurementId = 'G-PK9D34W1EP';
+    const storageKey = 'idmb.analytics-consent.v1';
+    const lifetime = 180 * 24 * 60 * 60 * 1000;
+    const notice = document.getElementById('cookie-notice');
+    const status = document.getElementById('cookie-status');
+    const settings = document.querySelector('.cookie-settings');
+    let scriptLoaded = false;
+    let trackingEnabled = false;
+    let returnFocus = false;
+    window['ga-disable-' + measurementId] = true;
+
+    function readChoice() {
+      try {
+        const raw = localStorage.getItem(storageKey);
+        if (!raw) return null;
+        const saved = JSON.parse(raw);
+        if (saved && ['accepted', 'rejected'].includes(saved.choice) &&
+            Number.isFinite(saved.expires) && saved.expires > Date.now() &&
+            saved.expires <= Date.now() + lifetime) return saved.choice;
+        localStorage.removeItem(storageKey);
+      } catch (error) {
+        console.error('De IDMB-cookiekeuze kon niet worden gelezen.', error);
+        status.textContent = 'Uw opgeslagen keuze is niet beschikbaar. Kies opnieuw; Analytics blijft uit tot u toestemming geeft.';
+      }
+      return null;
+    }
+
+    function clearAnalyticsCookies() {
+      const domains = location.hostname.split('.');
+      for (const cookie of document.cookie.split(';')) {
+        const name = cookie.split('=')[0].trim();
+        if (!/^idmb_ga(?:_|$)/.test(name) && name !== '_ga_PK9D34W1EP') continue;
+        for (const cookiePath of ['/idmb/', '/idmb', '/']) {
+          const expired = `${name}=; Max-Age=0; path=${cookiePath}; SameSite=Lax`;
+          document.cookie = expired;
+          for (let i = 0; i < domains.length - 1; i++) {
+            document.cookie = `${expired}; domain=${domains.slice(i).join('.')}`;
+          }
+        }
+      }
+    }
+
+    function applyChoice(choice) {
+      window['ga-disable-' + measurementId] = choice !== 'accepted';
+      if (choice !== 'accepted') {
+        trackingEnabled = false;
+        clearAnalyticsCookies();
+        return;
+      }
+      if (trackingEnabled) return;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      if (!scriptLoaded) {
+        window.gtag('js', new Date());
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+        script.addEventListener('error', () => {
+          console.error('Google Analytics kon niet worden geladen.');
+          status.textContent = 'Google Analytics is niet beschikbaar. Uw cookiekeuze blijft bewaard.';
+          showNotice();
+        });
+        document.head.appendChild(script);
+        scriptLoaded = true;
+      }
+      window.gtag('config', measurementId, {
+        cookie_prefix: 'idmb',
+        cookie_path: '/idmb/',
+        cookie_expires: lifetime / 1000
+      });
+      trackingEnabled = true;
+    }
+
+    function showNotice() {
+      notice.hidden = false;
+      settings.setAttribute('aria-expanded', 'true');
+    }
+
+    function saveChoice(choice) {
+      let saved = true;
+      status.textContent = '';
+      try {
+        localStorage.setItem(storageKey, JSON.stringify({choice, expires: Date.now() + lifetime}));
+      } catch (error) {
+        saved = false;
+        console.error('De IDMB-cookiekeuze kon niet worden opgeslagen.', error);
+        status.textContent = 'Uw keuze geldt voor dit bezoek, maar kon niet worden opgeslagen. Bij een volgend bezoek vragen we opnieuw toestemming.';
+      }
+      applyChoice(choice);
+      if (saved) {
+        notice.hidden = true;
+        settings.setAttribute('aria-expanded', 'false');
+        if (returnFocus || notice.contains(document.activeElement)) settings.focus();
+        returnFocus = false;
+      }
+    }
+
+    settings.addEventListener('click', () => {
+      returnFocus = true;
+      showNotice();
+      document.getElementById('cookie-title').focus();
+    });
+    document.getElementById('cookie-accept').addEventListener('click', () => saveChoice('accepted'));
+    document.getElementById('cookie-reject').addEventListener('click', () => saveChoice('rejected'));
+    window.addEventListener('storage', event => {
+      if (event.key !== storageKey && event.key !== null) return;
+      const choice = readChoice();
+      applyChoice(choice);
+      if (!choice) showNotice();
+    });
+    const choice = readChoice();
+    applyChoice(choice);
+    if (!choice) showNotice();
+  })();
+</script>
+</body></html>

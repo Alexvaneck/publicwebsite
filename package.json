@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build:idmb": "node scripts/build-idmb-projects.cjs",
     "deploy": "node scripts/deploy.cjs",
     "test": "node --test tests/*.test.cjs"
   },
