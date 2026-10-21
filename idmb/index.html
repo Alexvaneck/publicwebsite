@@ -131,7 +131,7 @@
 </aside>
 <script id="google-consent">
   (() => {
-    const measurementId = 'G-PK9D34W1EP';
+    const measurementId = 'G-J5LE5VHNVH';
     const storageKey = 'idmb.analytics-consent.v1';
     const lifetime = 180 * 24 * 60 * 60 * 1000;
     const notice = document.getElementById('cookie-notice');
@@ -162,7 +162,8 @@
       const domains = location.hostname.split('.');
       for (const cookie of document.cookie.split(';')) {
         const name = cookie.split('=')[0].trim();
-        if (!/^idmb_ga(?:_|$)/.test(name) && name !== '_ga_PK9D34W1EP') continue;
+        if (!/^idmb_ga(?:_|$)/.test(name) &&
+            name !== '_ga_PK9D34W1EP' && name !== '_ga_J5LE5VHNVH') continue;
         for (const cookiePath of ['/idmb/', '/idmb', '/']) {
           const expired = `${name}=; Max-Age=0; path=${cookiePath}; SameSite=Lax`;
           document.cookie = expired;

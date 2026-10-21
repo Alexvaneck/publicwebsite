@@ -26,7 +26,7 @@ function setup({choice, expires = Date.now() + lifetime - 1000, raw, failStorage
     getElementById: element, querySelector: element,
     createElement() { return element('script'); },
     head: {appendChild(script) { scripts.push(script); }},
-    get cookie() { return 'idmb_ga=test; idmb_ga_PK9D34W1EP=test; _ga_PK9D34W1EP=legacy; _ga=homepage; _ga_OTHER=homepage'; },
+    get cookie() { return 'idmb_ga=test; idmb_ga_PK9D34W1EP=old; idmb_ga_J5LE5VHNVH=new; _ga_PK9D34W1EP=legacy; _ga_J5LE5VHNVH=new; _ga=homepage; _ga_OTHER=homepage'; },
     set cookie(value) { removedCookies.push(value); }
   };
   const errors = [];
@@ -55,7 +55,7 @@ test('no static Google script; no choice or refusal never loads Analytics', () =
   for (const choice of [undefined, 'rejected']) {
     const app = setup({choice});
     assert.equal(app.scripts.length, 0);
-    assert.equal(app.context['ga-disable-G-PK9D34W1EP'], true);
+    assert.equal(app.context['ga-disable-G-J5LE5VHNVH'], true);
     assert.equal(app.elements['cookie-notice'].hidden, choice === 'rejected');
   }
 });
@@ -64,11 +64,12 @@ test('acceptance loads once, stores expiry and configures isolated cookies', () 
   const app = setup();
   app.click('cookie-accept');
   assert.equal(app.scripts.length, 1);
-  assert.equal(app.scripts[0].src, 'https://www.googletagmanager.com/gtag/js?id=G-PK9D34W1EP');
-  assert.equal(app.context['ga-disable-G-PK9D34W1EP'], false);
+  assert.equal(app.scripts[0].src, 'https://www.googletagmanager.com/gtag/js?id=G-J5LE5VHNVH');
+  assert.equal(app.context['ga-disable-G-J5LE5VHNVH'], false);
   const config = app.context.dataLayer[1];
   assert.equal(config[0], 'config');
-  assert.equal(config[1], 'G-PK9D34W1EP');
+  assert.equal(config[1], 'G-J5LE5VHNVH');
+  assert.ok(app.context.dataLayer.every(command => command[1] !== 'G-PK9D34W1EP'));
   assert.equal(config[2].cookie_prefix, 'idmb');
   assert.equal(config[2].cookie_path, '/idmb/');
   assert.equal(config[2].cookie_expires, lifetime / 1000);
@@ -98,14 +99,17 @@ test('withdrawal disables tracking and removes only IDMB cookies', () => {
   const app = setup({choice: 'accepted'});
   app.click('.cookie-settings');
   app.click('cookie-reject');
-  assert.equal(app.context['ga-disable-G-PK9D34W1EP'], true);
+  assert.equal(app.context['ga-disable-G-J5LE5VHNVH'], true);
   assert.equal(JSON.parse(app.stored()).choice, 'rejected');
   assert.ok(app.removedCookies.some(value => value.startsWith('idmb_ga=')));
+  for (const name of ['idmb_ga_PK9D34W1EP', 'idmb_ga_J5LE5VHNVH', '_ga_PK9D34W1EP', '_ga_J5LE5VHNVH']) {
+    assert.ok(app.removedCookies.some(value => value.startsWith(`${name}=`)));
+  }
   assert.ok(app.removedCookies.some(value => value.includes('domain=alexvaneck.nl')));
   assert.ok(app.removedCookies.every(value => !/^_ga(?:=|_OTHER=)/.test(value)));
   app.click('cookie-accept');
   assert.equal(app.scripts.length, 1);
-  assert.equal(app.context['ga-disable-G-PK9D34W1EP'], false);
+  assert.equal(app.context['ga-disable-G-J5LE5VHNVH'], false);
 });
 
 test('storage failure is reported and does not imply prior consent', () => {
@@ -121,7 +125,7 @@ test('storage removal in another tab disables Analytics and asks again', () => {
   const app = setup({choice: 'accepted'});
   app.context.localStorage.removeItem(key);
   app.events.storage({key});
-  assert.equal(app.context['ga-disable-G-PK9D34W1EP'], true);
+  assert.equal(app.context['ga-disable-G-J5LE5VHNVH'], true);
   assert.equal(app.elements['cookie-notice'].hidden, false);
 });
 

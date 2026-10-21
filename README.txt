@@ -28,11 +28,12 @@ including cookies from the previous G-59P9G417BB stream.
 Storage and script errors are explicitly reported in the notice.
 Run homepage consent/SEO tests: node --test tests/homepage-consent.test.cjs
 
-The IDMB page (/idmb/) only loads Google Analytics (G-PK9D34W1EP)
+The IDMB page (/idmb/) only loads Google Analytics (G-J5LE5VHNVH)
 after explicit acceptance in its cookie notice. Accepting and rejecting
 are stored locally for 180 days; Cookie-instellingen in the footer
 reopens the notice. Rejection disables this page's tracking and removes
-its Analytics cookies. IDMB uses the idmb cookie prefix and /idmb/ path
+its Analytics cookies, including those from the previous G-PK9D34W1EP stream.
+IDMB uses the idmb cookie prefix and /idmb/ path
 to keep its cookies separate from the homepage. If browser storage fails,
 the notice reports this and the choice only applies to the current visit.
 Run consent tests: node --test tests/idmb-consent.test.cjs

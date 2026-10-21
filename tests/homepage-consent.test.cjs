@@ -31,7 +31,7 @@ function setup({choice, expires = Date.now() + lifetime - 1000, raw, blocked = f
       getElementById: node, querySelectorAll() { return settings; },
       createElement() { return node('script'); },
       head: {appendChild(script) { scripts.push(script); }},
-      get cookie() { return '_ga=old; _ga_59P9G417BB=old; _ga_J5Q1E3G4DJ=new; alexvaneck_ga=new; alexvaneck_ga_59P9G417BB=old; alexvaneck_ga_J5Q1E3G4DJ=new; idmb_ga=other; _ga_PK9D34W1EP=other'; },
+      get cookie() { return '_ga=old; _ga_59P9G417BB=old; _ga_J5Q1E3G4DJ=new; alexvaneck_ga=new; alexvaneck_ga_59P9G417BB=old; alexvaneck_ga_J5Q1E3G4DJ=new; idmb_ga=other; _ga_PK9D34W1EP=other; _ga_J5LE5VHNVH=other'; },
       set cookie(value) { cookies.push(value); }
     },
     localStorage: {
@@ -98,7 +98,7 @@ test('both settings buttons reopen notice; withdrawal preserves IDMB cookies', (
   for (const name of ['_ga_59P9G417BB', '_ga_J5Q1E3G4DJ', 'alexvaneck_ga_59P9G417BB', 'alexvaneck_ga_J5Q1E3G4DJ']) {
     assert.ok(app.cookies.some(value => value.startsWith(`${name}=`)));
   }
-  assert.ok(app.cookies.every(value => !/^idmb_ga|^_ga_PK9D34W1EP/.test(value)));
+  assert.ok(app.cookies.every(value => !/^idmb_ga|^_ga_PK9D34W1EP|^_ga_J5LE5VHNVH/.test(value)));
   assert.equal(JSON.parse(app.stored()).choice, 'rejected');
 });
 
