@@ -15,9 +15,14 @@ test('all pages link to the dedicated contact page with one header link per view
   const {projects, renderProject, renderContact} = require('../scripts/build-idmb-projects.cjs');
   const contact = fs.readFileSync(path.join(root, 'idmb/contact/index.html'), 'utf8');
   assert.equal(contact, renderContact(homepage), 'Run npm run build:idmb to refresh the contact page');
+  assert.doesNotMatch(contact, /Liever zelf mailen\?/);
+  assert.doesNotMatch(contact.match(/<main[\s\S]*?<\/main>/)[0], /mailto:info@speebeheer\.nl/);
   const otherPages = [homepage, ...projects.map(project => renderProject(homepage, project))];
   for (const html of [...otherPages, contact]) {
     const header = html.match(/<header>[\s\S]*?<\/header>/)[0];
+    const footer = html.match(/<footer>[\s\S]*?<\/footer>/)[0];
+    assert.doesNotMatch(footer, /info@speebeheer\.nl|mailto:/);
+    assert.match(footer, /href="\/idmb\/contact\/"/);
     const menu = header.match(/<nav class="menu">[\s\S]*?<\/nav>/)[0];
     assert.equal([...menu.matchAll(/href="\/idmb\/contact\/"/g)].length, 1);
     assert.match(header, /class="mobile btn" href="\/idmb\/contact\/"/);

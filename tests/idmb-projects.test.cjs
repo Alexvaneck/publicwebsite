@@ -7,6 +7,22 @@ const {projects, renderProject} = require('../scripts/build-idmb-projects.cjs');
 const root = path.resolve(__dirname, '..');
 const source = fs.readFileSync(path.join(root, 'idmb/index.html'), 'utf8');
 
+test('navigation follows the homepage section order on every page', () => {
+  const {renderContact} = require('../scripts/build-idmb-projects.cjs');
+  const ids = ['over', 'disciplines', 'projecten', 'partners'];
+  const positions = ids.map(id => source.indexOf(`id="${id}"`));
+  assert.ok(positions.every((position, index) => position >= 0 &&
+    (index === 0 || position > positions[index - 1])));
+  for (const html of [source, renderContact(source), ...projects.map(project => renderProject(source, project))]) {
+    for (const area of [html.match(/<nav class="menu">[\s\S]*?<\/nav>/)[0],
+      html.match(/<footer>[\s\S]*?<\/footer>/)[0]]) {
+      const links = [...area.matchAll(/href="(?:\/idmb\/)?#(over|disciplines|projecten|partners)"/g)]
+        .map(match => match[1]);
+      assert.deepEqual(links, ids);
+    }
+  }
+});
+
 test('all six homepage project cards have real internal page links', () => {
   const cards = [...source.matchAll(/<a class="(?:project-main|project-card|item)" href="([^"]+)"/g)];
   assert.equal(cards.length, 6);

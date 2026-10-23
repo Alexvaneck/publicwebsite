@@ -76,7 +76,7 @@ function renderContact(source) {
 ${renderHeader(source)}
 <main id="top">
   <section class="cta contact-page" id="contact"><div class="wrap"><div class="cta-box">
-    <div><div class="eyebrow">Contact met Vastgoedgroep</div><h1>Wij horen graag over uw plannen.</h1><p>Heeft u een kans, locatie of project dat u met ons wilt bespreken? Wij komen graag in contact met grondeigenaren, ontwikkelaars, investeerders en andere partijen die kansen zien in vastgoed.</p><p>Vul het formulier in en wij nemen contact met u op. Liever zelf mailen? U bereikt ons via <a class="text-link" href="mailto:info@speebeheer.nl">info@speebeheer.nl</a>.</p></div>
+    <div><div class="eyebrow">Contact met Vastgoedgroep</div><h1>Wij horen graag over uw plannen.</h1><p>Heeft u een kans, locatie of project dat u met ons wilt bespreken? Wij komen graag in contact met grondeigenaren, ontwikkelaars, investeerders en andere partijen die kansen zien in vastgoed.</p><p>Vul het formulier in en wij nemen contact met u op.</p></div>
     <form class="contact-form" action="/idmb/contact.php" method="post">
       <label for="contact-name">Naam<input id="contact-name" name="name" autocomplete="name" maxlength="100" required></label>
       <label for="contact-email">E-mailadres<input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required></label>
