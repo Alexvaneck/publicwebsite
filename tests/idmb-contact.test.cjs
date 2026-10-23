@@ -23,6 +23,9 @@ test('all pages link to the dedicated contact page with one header link per view
     const footer = html.match(/<footer>[\s\S]*?<\/footer>/)[0];
     assert.doesNotMatch(footer, /info@speebeheer\.nl|mailto:/);
     assert.match(footer, /href="\/idmb\/contact\/"/);
+    assert.match(footer, /<a class="alexvaneck" href="https:\/\/alexvaneck.nl\/"><span>Alex<\/span>vaneck<\/a>/);
+    assert.match(html, /\.credit \.alexvaneck\{[^}]*font-size:inherit/);
+    assert.match(html, /\.alexvaneck span\{color:#f58220\}/);
     const menu = header.match(/<nav class="menu">[\s\S]*?<\/nav>/)[0];
     assert.equal([...menu.matchAll(/href="\/idmb\/contact\/"/g)].length, 1);
     assert.match(header, /class="mobile btn" href="\/idmb\/contact\/"/);
