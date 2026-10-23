@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Centric / Zuiderpark — IDMB RE B.V.</title>
-  <meta name="description" content="Herontwikkeling naar een nieuwe woonomgeving. IDMB RE B.V." />
+  <title>Centric / Zuiderpark — Vastgoedgroep</title>
+  <meta name="description" content="Herontwikkeling naar een nieuwe woonomgeving. Vastgoedgroep." />
   <style>
     :root{--ink:#102b29;--muted:#667472;--sand:#f6f2ea;--gold:#b28b45;--line:#dde3df;--white:#fff;--max:1280px}
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff} a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
@@ -18,6 +18,7 @@
     .statement{background:var(--ink);color:#fff}.statement .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:100px;align-items:center}.statement h2{font-size:clamp(48px,5vw,76px);line-height:1;letter-spacing:-.04em;margin:15px 0}.statement p{font-size:18px;line-height:1.8;color:#d6dedc}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.18)}.stat{background:var(--ink);padding:28px}.stat strong{display:block;font-size:38px}.stat span{font-size:13px;color:#c7d1cf}
     .partners{text-align:center}.partners h2{font-size:40px;margin:8px 0 10px}.partners p{color:#687673}.logo-row{display:grid;grid-template-columns:repeat(5,1fr);align-items:center;gap:28px;margin-top:48px}.logo-cell{height:120px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:24px;background:white}.logo-cell img{max-height:66px;max-width:100%;object-fit:contain}
     .cta{padding-top:40px}.cta-box{background:var(--sand);padding:76px;display:flex;justify-content:space-between;gap:50px;align-items:center}.cta-box h2{font-size:48px;line-height:1.03;letter-spacing:-.03em;margin:0;max-width:700px}.cta-box p{color:#65726f;max-width:470px;line-height:1.7}
+    #contact{scroll-margin-top:110px}.cta-box>div,.contact-form{flex:1;min-width:0}.contact-form{display:grid;gap:16px}.contact-form label{display:grid;gap:7px;font-size:14px;font-weight:700}.contact-form input,.contact-form textarea{width:100%;min-width:0;padding:12px;border:1px solid #899692;border-radius:0;background:white;color:var(--ink);font:inherit}.contact-form textarea{resize:vertical}.contact-form .btn{border:0;font-family:inherit;cursor:pointer;justify-self:start}.contact-form .btn:disabled{opacity:.6;cursor:wait}.contact-form :focus-visible{outline:3px solid var(--gold);outline-offset:3px}.contact-form .contact-status{margin:0;font-size:14px;color:var(--ink)}.contact-form .contact-status:empty{display:none}.contact-trap{display:none!important}.contact-form .note{margin:0;line-height:1.6}
     footer{margin-top:90px;background:#071b1a;color:white;padding:54px 0 28px}.foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px}.foot h4{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:#9eb0ac}.foot p,.foot a{color:#d9e0de;line-height:1.8;font-size:14px}.credit{border-top:1px solid rgba(255,255,255,.12);margin-top:38px;padding-top:25px;display:flex;justify-content:space-between;align-items:center;color:#96aaa6;font-size:12px}.credit .alexvaneck{display:inline-block;color:#fff;font-size:28px;font-weight:700;letter-spacing:-.04em;white-space:nowrap}.alexvaneck span{color:#f58220}
     .mobile{display:none}.note{font-size:11px;color:#8a9693;margin-top:14px}
     .project-main:focus-visible,.project-card:focus-visible,.project-list .item:focus-visible{outline:3px solid var(--gold);outline-offset:4px}.project-list a.item:hover{border-color:var(--gold)}
@@ -45,35 +46,38 @@
 <body>
 <header>
   <div class="wrap nav project-nav">
-    <a class="project-home" href="/idmb/">IDMB RE B.V.</a><nav class="menu">
-      <a href="/idmb/#over">Over ons</a><a href="/idmb/#projecten">Projecten</a><a href="/idmb/#disciplines">Disciplines</a><a href="/idmb/#partners">Partners</a><a href="/idmb/#contact">Contact</a>
-      <a class="btn" href="/idmb/#contact">Neem contact op <span>↗</span></a>
+    <a class="project-home" href="/idmb/">Vastgoedgroep</a><nav class="menu">
+      <a href="/idmb/#over">Over ons</a><a href="/idmb/#projecten">Projecten</a><a href="/idmb/#disciplines">Disciplines</a><a href="/idmb/#partners">Partners</a>
+      <a class="btn" href="/idmb/contact/">Neem contact op <span>↗</span></a>
     </nav>
-    <a class="mobile project-home" href="/idmb/#projecten">Alle projecten</a>
+    <a class="mobile btn" href="/idmb/contact/">Contact ↗</a>
   </div>
 </header>
 <main id="top">
   <nav class="wrap project-breadcrumb" aria-label="Broodkruimel"><a href="/idmb/">Home</a> / <a href="/idmb/#projecten">Projecten</a> / <span aria-current="page">Centric / Zuiderpark</span></nav>
   <section class="hero project-hero"><div class="wrap"><div class="hero-card">
     <img src="/idmb/assets/centric-01.jpg" alt="Centric / Zuiderpark">
-    <div class="hero-content"><div class="eyebrow">IJsselstein / Wonen / transformatie</div><h1>Centric / Zuiderpark</h1><p>Herontwikkeling naar een nieuwe woonomgeving.</p><div class="actions"><a class="btn light" href="#projectinformatie">Over dit project</a><a class="btn light" href="#contact">Neem contact op ↗</a></div></div>
+    <div class="hero-content"><div class="eyebrow">IJsselstein / Wonen / transformatie</div><h1>Centric / Zuiderpark</h1><p>Herontwikkeling naar een nieuwe woonomgeving.</p><div class="actions"><a class="btn light" href="#projectinformatie">Over dit project</a><a class="btn light" href="/idmb/contact/">Neem contact op ↗</a></div></div>
   </div></div></section>
   <section class="project-information" id="projectinformatie"><div class="wrap intro">
     <div><div class="eyebrow">Het project</div><h2>Centric / Zuiderpark</h2><dl class="project-facts"><div><dt>Locatie</dt><dd>IJsselstein</dd></div><div><dt>Discipline</dt><dd>Wonen / transformatie</dd></div><div><dt>Status</dt><dd>In verkoop</dd></div></dl></div>
-    <div class="intro-copy"><p>Centric / Zuiderpark in IJsselstein staat in het teken van de transformatie naar wonen. Bekijk de projectbeelden en lees meer over de verkoop via de aanvullende projectinformatie.</p><p class="note">Conceptinformatie op basis van het bestaande projectoverzicht. Verdere projectdetails volgen.</p><a class="text-link" href="https://www.ijsselstein20.nl/nieuwe-appartementen-in-zuiderpark-ijsselstein-voormalig-centric-pand-verkoop-in-volle-gang/" target="_blank" rel="noopener noreferrer">Lees het bericht over de verkoop ↗</a></div>
+    <div class="intro-copy"><p>Met Centric / Zuiderpark in IJsselstein richten wij ons op de transformatie naar wonen. Wij laten u graag de projectbeelden zien. Via de aanvullende projectinformatie leest u meer over de verkoop.</p><p class="note">Conceptinformatie op basis van het bestaande projectoverzicht. Verdere projectdetails volgen.</p><a class="text-link" href="https://www.ijsselstein20.nl/nieuwe-appartementen-in-zuiderpark-ijsselstein-voormalig-centric-pand-verkoop-in-volle-gang/" target="_blank" rel="noopener noreferrer">Lees het bericht over de verkoop ↗</a></div>
   </div></section>
   <section class="project-gallery"><div class="wrap"><div class="section-head"><div><div class="eyebrow">In beeld</div><h2>Een blik op het project.</h2></div><p>Beelden uit het bestaande conceptoverzicht.</p></div><div class="project-images">
     <figure><img src="/idmb/assets/centric-01.jpg" alt="Centric / Zuiderpark — projectbeeld 1" loading="lazy"><figcaption>Centric / Zuiderpark · Projectbeeld 1</figcaption></figure>
     <figure><img src="/idmb/assets/centric-02.jpg" alt="Centric / Zuiderpark — projectbeeld 2" loading="lazy"><figcaption>Centric / Zuiderpark · Projectbeeld 2</figcaption></figure>
   </div></div></section>
-  <section class="cta" id="contact"><div class="wrap"><div class="cta-box"><div><div class="eyebrow">Kennismaken?</div><h2>Een kans, locatie of project bespreken?</h2></div><div><p>We komen graag in contact met grondeigenaren, ontwikkelaars, investeerders en andere partijen die kansen zien in vastgoed.</p><a href="mailto:info@speebeheer.nl" class="btn">Neem contact op ↗</a></div></div></div></section>
+  <section class="cta" id="contact"><div class="wrap"><div class="cta-box">
+    <div><div class="eyebrow">Kennismaken?</div><h2>Wij horen graag over uw plannen.</h2><p>Heeft u een kans, locatie of project dat u met ons wilt bespreken? Wij komen graag in contact met grondeigenaren, ontwikkelaars, investeerders en andere partijen die kansen zien in vastgoed.</p></div>
+    <div><a class="btn" href="/idmb/contact/">Naar het contactformulier ↗</a></div>
+  </div></div></section>
   <section class="projects" id="andere-projecten"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Verder ontdekken</div><h2>Andere projecten.</h2></div><a class="text-link" href="/idmb/#projecten">Alle projecten ↗</a></div><div class="project-list">
         <a class="item" href="../hoge-biezen/"><img src="/idmb/assets/omgeving.jpg" alt="Hoge Biezen" loading="lazy"><h4>Hoge Biezen</h4><p>Ontwikkeling · In voorbereiding ↗</p></a>
         <a class="item" href="../knik-houten/"><img src="/idmb/assets/overzicht2.jpg" alt="KNIK Houten" loading="lazy"><h4>KNIK Houten</h4><p>Samenwerking / ontwikkeling · Details volgen ↗</p></a>
         <a class="item" href="../nieuwe-ontwikkeling/"><img src="/idmb/assets/overzicht.jpg" alt="Nieuwe ontwikkeling" loading="lazy"><h4>Nieuwe ontwikkeling</h4><p>Ontwikkeling · Details volgen ↗</p></a>
   </div></div></section>
 </main>
-<footer><div class="wrap"><div class="foot"><div><h4>IDMB RE B.V.</h4><p>Vastgoed & ontwikkeling<br>Conceptwebsite</p><button class="cookie-settings" type="button" aria-controls="cookie-notice" aria-expanded="false">Cookie-instellingen</button></div><div><h4>Navigatie</h4><p><a href="/idmb/#over">Over ons</a><br><a href="/idmb/#projecten">Projecten</a><br><a href="/idmb/#disciplines">Disciplines</a><br><a href="/idmb/#partners">Partners</a></p></div><div><h4>Contact</h4><p><a href="mailto:info@speebeheer.nl">info@speebeheer.nl</a><br>Contactgegevens kunnen in definitieve versie worden aangevuld.</p></div></div><div class="credit"><span>© 2026 IDMB RE B.V. · Eerste visueel concept</span><a class="alexvaneck" href="https://alexvaneck.nl/"><span>alex</span>vaneck</a></div></div></footer>
+<footer><div class="wrap"><div class="foot"><div><h4>Vastgoedgroep</h4><p>Vastgoed & ontwikkeling<br>Conceptwebsite</p><button class="cookie-settings" type="button" aria-controls="cookie-notice" aria-expanded="false">Cookie-instellingen</button></div><div><h4>Navigatie</h4><p><a href="/idmb/#over">Over ons</a><br><a href="/idmb/#projecten">Projecten</a><br><a href="/idmb/#disciplines">Disciplines</a><br><a href="/idmb/#partners">Partners</a></p></div><div><h4>Contact</h4><p><a href="/idmb/contact/">Contactformulier ↗</a><br><a href="mailto:info@speebeheer.nl">info@speebeheer.nl</a><br>Contactgegevens kunnen in definitieve versie worden aangevuld.</p></div></div><div class="credit"><span>© 2026 Vastgoedgroep · Eerste visueel concept</span><a class="alexvaneck" href="https://alexvaneck.nl/"><span>alex</span>vaneck</a></div></div></footer>
 <aside class="cookie-notice" id="cookie-notice" role="region" aria-labelledby="cookie-title" hidden>
   <div class="eyebrow">Uw privacy, uw keuze</div>
   <h2 id="cookie-title" tabindex="-1">Een zorgvuldig bezoek.</h2>
